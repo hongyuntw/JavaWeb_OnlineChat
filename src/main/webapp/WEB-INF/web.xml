@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://java.sun.com/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
+		  http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+         version="2.5">
+  <display-name>sshblog</display-name>
+
+  <!--Spring ApplicationContext配置文件路径，可使用通配符，多个路径用","号分隔 此参数用于后面的Spring Context Loader-->
+  <context-param>
+    <param-name>contextConfigLocation</param-name>
+    <param-value>classpath:applicationContext*.xml</param-value>
+  </context-param>
+
+  <!--过滤器源码配置-->
+  <filter>
+    <filter-name>encodingFilter</filter-name>
+    <filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
+    <init-param>
+      <param-name>encoding</param-name>
+      <param-value>UTF-8</param-value>
+    </init-param>
+  </filter>
+
+  <!--以下是log4j的日志配置-->
+  <context-param>
+    <param-name>log4jConfigLocation</param-name>
+    <param-value>classpath:log4j.properties</param-value>
+  </context-param>
+  <context-param>
+    <param-name>log4jRefreshInteval</param-name>
+    <param-value>600000</param-value>
+  </context-param>
+  <listener>
+    <listener-class>org.springframework.web.util.Log4jConfigListener</listener-class>
+  </listener>
+
+  <!--过滤.html请求-->
+  <filter-mapping>
+    <filter-name>encodingFilter</filter-name>
+    <url-pattern>*.html</url-pattern>
+  </filter-mapping>
+  <!--过滤.json-->
+  <filter-mapping>
+    <filter-name>encodingFilter</filter-name>
+    <url-pattern>*.json</url-pattern>
+  </filter-mapping>
+
+  <!--以下是与Hibernate的延迟有关的配置-->
+  <filter>
+    <filter-name>openSessionInView</filter-name>
+    <filter-class>org.springframework.orm.hibernate4.support.OpenSessionInViewFilter</filter-class>
+  </filter>
+  <filter-mapping>
+    <filter-name>openSessionInView</filter-name>
+    <url-pattern>/*</url-pattern>
+  </filter-mapping>
+
+  <!--Spring ApplicationContext 载入监听-->
+  <listener>
+    <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+  </listener>
+
+  <!--Spring 刷新Introspector防止内存泄漏-->
+  <listener>
+    <listener-class>org.springframework.web.util.IntrospectorCleanupListener</listener-class>
+  </listener>
+
+  <!--Spring MVC 配置以便拦截-->
+  <servlet>
+    <servlet-name>dispatcher</servlet-name>
+    <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+    <init-param>
+      <param-name>contextConfigLocation</param-name>
+      <param-value>classpath:spring-mvc.xml</param-value>
+    </init-param>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>dispatcher</servlet-name>
+    <url-pattern>*.html</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>dispatcher</servlet-name>
+    <url-pattern>*.json</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>dispatcher</servlet-name>
+    <url-pattern>/</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>default</servlet-name>
+    <url-pattern>*.css</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>default</servlet-name>
+    <url-pattern>*.xml</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>default</servlet-name>
+    <url-pattern>*.swf</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>default</servlet-name>
+    <url-pattern>*.zip</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>default</servlet-name>
+    <url-pattern>*.gif</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>default</servlet-name>
+    <url-pattern>*.jpg</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>default</servlet-name>
+    <url-pattern>*.jpeg</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>default</servlet-name>
+    <url-pattern>*.png</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>default</servlet-name>
+    <url-pattern>*.js</url-pattern>
+  </servlet-mapping>
+
+  <!--session超时定义，单位为分钟-->
+  <session-config>
+    <session-timeout>30</session-timeout>
+  </session-config>
+
+<!--  &lt;!&ndash;欢迎页面定义&ndash;&gt;-->
+<!--  <welcome-file-list>-->
+<!--    <welcome-file>/index.html</welcome-file>-->
+<!--    <welcome-file>/index.jsp</welcome-file>-->
+<!--  </welcome-file-list>-->
+
+
+<!--  <error-page>-->
+<!--    <exception-type>java.lang.Throwable</exception-type>-->
+<!--    <location>/frontend/common/500.html</location>-->
+<!--  </error-page>-->
+<!--  <error-page>-->
+<!--    <error-code>500</error-code>-->
+<!--    <location>/frontend/common/500.html</location>-->
+<!--  </error-page>-->
+<!--  <error-page>-->
+<!--    <error-code>404</error-code>-->
+<!--    <location>/frontend/common/404.html</location>-->
+<!--  </error-page>-->
+
+</web-app>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>通讯录</title>
+    <script type="text/javascript" src="js/contacts.js"></script>
+</head>
+<body style="font-family: Arial; font-size:smaller;">
+
+<table  bgcolor="lightblue" width="750" height="500" align="center" style="border-collapse: collapse;" border="1" bordercolor="#006699" >
+    <tr>
+        <td align="center"><h1>新建联系人</h1></td>
+    </tr>
+    <tr valign="top" align="center">
+        <td align="center">
+            <form action="save.html" method="post">
+
+                <table width="500" style="border-collapse: collapse;" border="0" bordercolor="#006699" cellspacing="2" cellpadding="2">
+                    <tr>
+                        <td width="100" align="right">姓名</td>
+                        <td width="150">
+                            <input name="name"/>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td width="100" align="right">出生日期</td>
+                        <td><input name="dateOfb" type="date"/></td>
+                    </tr>
+                    <tr>
+                        <td width="100" align="right">性别</td>
+                        <td>
+                            <input name="gender" type="radio" value="男">男
+                            <input name="gender" type="radio" value="女">女
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="100" align="right">地址</td>
+                        <td><input name="address"/></td>
+                    </tr>
+                    <tr>
+                        <td width="100" align="right">邮箱</td>
+                        <td><input name="email"/></td>
+                    </tr>
+                    <tr>
+                        <td width="100" align="right">手机</td>
+                        <td><input name="mobile"/></td>
+                    </tr>
+                    <tr>
+                        <td colspan="3" align="center">
+                            <input type="submit" name="" value="保存">
+
+                            <input type="reset" name="" value="重置">
+
+                            <input type="button"  value="返回" onclick="window.location='index.html'">
+                        </td>
+                    </tr>
+                </table>
+            </form>
+        </td>
+    </tr>
+</table>
+</body>
+</html>

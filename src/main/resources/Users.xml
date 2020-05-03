@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entity-mappings xmlns="http://java.sun.com/xml/ns/persistence/orm"
+        version="2.0">
+
+    <entity class="com.sshblog.entity.Users">
+        <table name="users" schema="JavaWeb" catalog=""/>
+        <attributes>
+            <id name="id">
+                <column name="id"/>
+            </id>
+            <basic name="name">
+                <column name="name"/>
+            </basic>
+            <basic name="nickname">
+                <column name="nickname"/>
+            </basic>
+            <basic name="sex">
+                <column name="sex"/>
+            </basic>
+            <basic name="email">
+                <column name="email"/>
+            </basic>
+            <basic name="password">
+                <column name="password"/>
+            </basic>
+            <basic name="createDate">
+                <column name="create_date"/>
+            </basic>
+        </attributes>
+    </entity>
+</entity-mappings>

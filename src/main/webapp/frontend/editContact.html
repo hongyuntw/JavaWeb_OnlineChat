@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>通讯录</title>
+    <script type="text/javascript" src="js/contacts.js"></script>
+</head>
+<body style="font-family: Arial; font-size:smaller;">
+
+<table  bgcolor="lightblue" width="750" height="500" align="center" style="border-collapse: collapse;" border="1" bordercolor="#006699" >
+    <tr>
+        <td align="center"><h1>编辑联系人信息</h1></td>
+    </tr>
+    <tr valign="top" align="center">
+        <td align="center">
+            <form action="update.html" method="post" >
+                <table width="500" style="border-collapse: collapse; margin-left: auto; margin-right: auto;" border="0" bordercolor="#006699"  cellspacing="2" cellpadding="2">
+                    <tr>
+                        <td width="200" align="right">编号</td>
+                        <td width="250">
+                            <input name="id" value="${editContact.id }" readonly="true"/></td>
+                    </tr>
+                    <tr>
+                        <td width="100" align="right">姓名</td>
+                        <td>
+                            <input name="name" value="${editContact.name}" readonly="true"/></td>
+                    </tr>
+
+                    <tr>
+                        <td width="100" align="right">出生日期</td>
+                        <td><input name="dateOfb" value="${editContact.dob?string('yyyy-MM-dd')}" readonly="readonly"/></td>
+                    </tr>
+                    <tr>
+                        <td width="100" align="right">性别</td>
+                        <td>
+                            <span>男</span>
+                        </td>
+                        <td>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="100" align="right">地址</td>
+                        <td><input name="address" value="${editContact.address}"/></td>
+                    </tr>
+                    <tr>
+                        <td width="100" align="right">邮箱</td>
+                        <td><input name="email" value="${editContact.email}"/></td>
+                    </tr>
+                    <tr>
+                        <td width="100" align="right">手机</td>
+                        <td><input name="mobile" value="${editContact.mobile?c}"/></td>
+                    </tr>
+                    <tr>
+                        <td colspan="3" align="center">
+                            <input type="button"  value="删除" onclick="window.location='delete.html?id=${editContact.id}'">
+
+                            <input type="submit" name="" value="保存">
+
+                            <input type="button"  value="返回" onclick="window.location='index.html'">
+                        </td>
+                    </tr>
+
+                </table>
+            </form>
+        </td>
+    </tr>
+</table>
+
+
+</body>
+</html>

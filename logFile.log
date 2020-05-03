@@ -1,0 +1,1180 @@
+INFO main org.springframework.web.context.ContextLoader -Root WebApplicationContext: initialization started
+INFO main org.springframework.web.context.support.XmlWebApplicationContext -Refreshing Root WebApplicationContext: startup date [Tue Aug 29 11:18:36 CST 2017]; root of context hierarchy
+INFO main org.springframework.beans.factory.xml.XmlBeanDefinitionReader -Loading XML bean definitions from file [/Users/fei/Documents/Workspace/IDEAWorkspace/J2EE/SSHBlog/target/classes/applicationContext.xml]
+INFO main org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor -JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+INFO main org.springframework.jdbc.datasource.DriverManagerDataSource -Loaded JDBC driver: com.mysql.jdbc.Driver
+WARN main org.springframework.web.context.support.XmlWebApplicationContext -Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'sessionFactory': Failed to introspect bean class [org.springframework.orm.hibernate4.LocalSessionFactoryBean] for lookup method metadata: could not find class that it depends on; nested exception is java.lang.NoClassDefFoundError: org/hibernate/cache/spi/RegionFactory
+ERROR main org.springframework.web.context.ContextLoader -Context initialization failed
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'sessionFactory': Failed to introspect bean class [org.springframework.orm.hibernate4.LocalSessionFactoryBean] for lookup method metadata: could not find class that it depends on; nested exception is java.lang.NoClassDefFoundError: org/hibernate/cache/spi/RegionFactory
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.determineCandidateConstructors(AutowiredAnnotationBeanPostProcessor.java:269)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.determineConstructorsFromBeanPostProcessors(AbstractAutowireCapableBeanFactory.java:1118)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1091)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:513)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:483)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:306)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:230)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:302)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:197)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:742)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:867)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:543)
+	at org.springframework.web.context.ContextLoader.configureAndRefreshWebApplicationContext(ContextLoader.java:443)
+	at org.springframework.web.context.ContextLoader.initWebApplicationContext(ContextLoader.java:325)
+	at org.springframework.web.context.ContextLoaderListener.contextInitialized(ContextLoaderListener.java:107)
+	at org.mortbay.jetty.handler.ContextHandler.startContext(ContextHandler.java:548)
+	at org.mortbay.jetty.servlet.Context.startContext(Context.java:136)
+	at org.mortbay.jetty.webapp.WebAppContext.startContext(WebAppContext.java:1239)
+	at org.mortbay.jetty.handler.ContextHandler.doStart(ContextHandler.java:517)
+	at org.mortbay.jetty.webapp.WebAppContext.doStart(WebAppContext.java:466)
+	at org.mortbay.jetty.plugin.Jetty6PluginWebAppContext.doStart(Jetty6PluginWebAppContext.java:124)
+	at org.mortbay.component.AbstractLifeCycle.start(AbstractLifeCycle.java:50)
+	at org.mortbay.jetty.handler.HandlerCollection.doStart(HandlerCollection.java:152)
+	at org.mortbay.jetty.handler.ContextHandlerCollection.doStart(ContextHandlerCollection.java:156)
+	at org.mortbay.component.AbstractLifeCycle.start(AbstractLifeCycle.java:50)
+	at org.mortbay.jetty.handler.HandlerCollection.doStart(HandlerCollection.java:152)
+	at org.mortbay.component.AbstractLifeCycle.start(AbstractLifeCycle.java:50)
+	at org.mortbay.jetty.handler.HandlerWrapper.doStart(HandlerWrapper.java:130)
+	at org.mortbay.jetty.Server.doStart(Server.java:224)
+	at org.mortbay.component.AbstractLifeCycle.start(AbstractLifeCycle.java:50)
+	at org.mortbay.jetty.plugin.Jetty6PluginServer.start(Jetty6PluginServer.java:132)
+	at org.mortbay.jetty.plugin.AbstractJettyMojo.startJetty(AbstractJettyMojo.java:441)
+	at org.mortbay.jetty.plugin.AbstractJettyMojo.execute(AbstractJettyMojo.java:383)
+	at org.mortbay.jetty.plugin.AbstractJettyRunMojo.execute(AbstractJettyRunMojo.java:210)
+	at org.mortbay.jetty.plugin.Jetty6RunMojo.execute(Jetty6RunMojo.java:184)
+	at org.apache.maven.plugin.DefaultBuildPluginManager.executeMojo(DefaultBuildPluginManager.java:134)
+	at org.apache.maven.lifecycle.internal.MojoExecutor.execute(MojoExecutor.java:208)
+	at org.apache.maven.lifecycle.internal.MojoExecutor.execute(MojoExecutor.java:154)
+	at org.apache.maven.lifecycle.internal.MojoExecutor.execute(MojoExecutor.java:146)
+	at org.apache.maven.lifecycle.internal.LifecycleModuleBuilder.buildProject(LifecycleModuleBuilder.java:117)
+	at org.apache.maven.lifecycle.internal.LifecycleModuleBuilder.buildProject(LifecycleModuleBuilder.java:81)
+	at org.apache.maven.lifecycle.internal.builder.singlethreaded.SingleThreadedBuilder.build(SingleThreadedBuilder.java:51)
+	at org.apache.maven.lifecycle.internal.LifecycleStarter.execute(LifecycleStarter.java:128)
+	at org.apache.maven.DefaultMaven.doExecute(DefaultMaven.java:309)
+	at org.apache.maven.DefaultMaven.doExecute(DefaultMaven.java:194)
+	at org.apache.maven.DefaultMaven.execute(DefaultMaven.java:107)
+	at org.apache.maven.cli.MavenCli.execute(MavenCli.java:993)
+	at org.apache.maven.cli.MavenCli.doMain(MavenCli.java:345)
+	at org.apache.maven.cli.MavenCli.main(MavenCli.java:191)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.codehaus.plexus.classworlds.launcher.Launcher.launchEnhanced(Launcher.java:289)
+	at org.codehaus.plexus.classworlds.launcher.Launcher.launch(Launcher.java:229)
+	at org.codehaus.plexus.classworlds.launcher.Launcher.mainWithExitCode(Launcher.java:415)
+	at org.codehaus.plexus.classworlds.launcher.Launcher.main(Launcher.java:356)
+	at org.codehaus.classworlds.Launcher.main(Launcher.java:47)
+Caused by: java.lang.NoClassDefFoundError: org/hibernate/cache/spi/RegionFactory
+	at java.lang.Class.getDeclaredMethods0(Native Method)
+	at java.lang.Class.privateGetDeclaredMethods(Class.java:2701)
+	at java.lang.Class.getDeclaredMethods(Class.java:1975)
+	at org.springframework.util.ReflectionUtils.getDeclaredMethods(ReflectionUtils.java:613)
+	at org.springframework.util.ReflectionUtils.doWithMethods(ReflectionUtils.java:524)
+	at org.springframework.util.ReflectionUtils.doWithMethods(ReflectionUtils.java:510)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.determineCandidateConstructors(AutowiredAnnotationBeanPostProcessor.java:247)
+	... 57 more
+Caused by: java.lang.ClassNotFoundException: org.hibernate.cache.spi.RegionFactory
+	at org.codehaus.plexus.classworlds.strategy.SelfFirstStrategy.loadClass(SelfFirstStrategy.java:50)
+	at org.codehaus.plexus.classworlds.realm.ClassRealm.unsynchronizedLoadClass(ClassRealm.java:271)
+	at org.codehaus.plexus.classworlds.realm.ClassRealm.loadClass(ClassRealm.java:247)
+	at org.codehaus.plexus.classworlds.realm.ClassRealm.loadClass(ClassRealm.java:239)
+	at org.mortbay.jetty.webapp.WebAppClassLoader.loadClass(WebAppClassLoader.java:401)
+	at org.mortbay.jetty.webapp.WebAppClassLoader.loadClass(WebAppClassLoader.java:363)
+	... 64 more
+INFO main org.springframework.web.context.ContextLoader -Root WebApplicationContext: initialization started
+INFO main org.springframework.web.context.support.XmlWebApplicationContext -Refreshing Root WebApplicationContext: startup date [Tue Aug 29 11:22:48 CST 2017]; root of context hierarchy
+INFO main org.springframework.beans.factory.xml.XmlBeanDefinitionReader -Loading XML bean definitions from file [/Users/fei/Documents/Workspace/IDEAWorkspace/J2EE/SSHBlog/target/classes/applicationContext.xml]
+INFO main org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor -JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+INFO main org.springframework.jdbc.datasource.DriverManagerDataSource -Loaded JDBC driver: com.mysql.jdbc.Driver
+WARN main org.springframework.web.context.support.XmlWebApplicationContext -Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'sessionFactory': Failed to introspect bean class [org.springframework.orm.hibernate4.LocalSessionFactoryBean] for lookup method metadata: could not find class that it depends on; nested exception is java.lang.NoClassDefFoundError: org/hibernate/cache/spi/RegionFactory
+ERROR main org.springframework.web.context.ContextLoader -Context initialization failed
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'sessionFactory': Failed to introspect bean class [org.springframework.orm.hibernate4.LocalSessionFactoryBean] for lookup method metadata: could not find class that it depends on; nested exception is java.lang.NoClassDefFoundError: org/hibernate/cache/spi/RegionFactory
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.determineCandidateConstructors(AutowiredAnnotationBeanPostProcessor.java:269)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.determineConstructorsFromBeanPostProcessors(AbstractAutowireCapableBeanFactory.java:1118)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1091)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:513)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:483)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:306)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:230)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:302)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:197)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:742)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:867)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:543)
+	at org.springframework.web.context.ContextLoader.configureAndRefreshWebApplicationContext(ContextLoader.java:443)
+	at org.springframework.web.context.ContextLoader.initWebApplicationContext(ContextLoader.java:325)
+	at org.springframework.web.context.ContextLoaderListener.contextInitialized(ContextLoaderListener.java:107)
+	at org.mortbay.jetty.handler.ContextHandler.startContext(ContextHandler.java:548)
+	at org.mortbay.jetty.servlet.Context.startContext(Context.java:136)
+	at org.mortbay.jetty.webapp.WebAppContext.startContext(WebAppContext.java:1239)
+	at org.mortbay.jetty.handler.ContextHandler.doStart(ContextHandler.java:517)
+	at org.mortbay.jetty.webapp.WebAppContext.doStart(WebAppContext.java:466)
+	at org.mortbay.jetty.plugin.Jetty6PluginWebAppContext.doStart(Jetty6PluginWebAppContext.java:124)
+	at org.mortbay.component.AbstractLifeCycle.start(AbstractLifeCycle.java:50)
+	at org.mortbay.jetty.handler.HandlerCollection.doStart(HandlerCollection.java:152)
+	at org.mortbay.jetty.handler.ContextHandlerCollection.doStart(ContextHandlerCollection.java:156)
+	at org.mortbay.component.AbstractLifeCycle.start(AbstractLifeCycle.java:50)
+	at org.mortbay.jetty.handler.HandlerCollection.doStart(HandlerCollection.java:152)
+	at org.mortbay.component.AbstractLifeCycle.start(AbstractLifeCycle.java:50)
+	at org.mortbay.jetty.handler.HandlerWrapper.doStart(HandlerWrapper.java:130)
+	at org.mortbay.jetty.Server.doStart(Server.java:224)
+	at org.mortbay.component.AbstractLifeCycle.start(AbstractLifeCycle.java:50)
+	at org.mortbay.jetty.plugin.Jetty6PluginServer.start(Jetty6PluginServer.java:132)
+	at org.mortbay.jetty.plugin.AbstractJettyMojo.startJetty(AbstractJettyMojo.java:441)
+	at org.mortbay.jetty.plugin.AbstractJettyMojo.execute(AbstractJettyMojo.java:383)
+	at org.mortbay.jetty.plugin.AbstractJettyRunMojo.execute(AbstractJettyRunMojo.java:210)
+	at org.mortbay.jetty.plugin.Jetty6RunMojo.execute(Jetty6RunMojo.java:184)
+	at org.apache.maven.plugin.DefaultBuildPluginManager.executeMojo(DefaultBuildPluginManager.java:134)
+	at org.apache.maven.lifecycle.internal.MojoExecutor.execute(MojoExecutor.java:208)
+	at org.apache.maven.lifecycle.internal.MojoExecutor.execute(MojoExecutor.java:154)
+	at org.apache.maven.lifecycle.internal.MojoExecutor.execute(MojoExecutor.java:146)
+	at org.apache.maven.lifecycle.internal.LifecycleModuleBuilder.buildProject(LifecycleModuleBuilder.java:117)
+	at org.apache.maven.lifecycle.internal.LifecycleModuleBuilder.buildProject(LifecycleModuleBuilder.java:81)
+	at org.apache.maven.lifecycle.internal.builder.singlethreaded.SingleThreadedBuilder.build(SingleThreadedBuilder.java:51)
+	at org.apache.maven.lifecycle.internal.LifecycleStarter.execute(LifecycleStarter.java:128)
+	at org.apache.maven.DefaultMaven.doExecute(DefaultMaven.java:309)
+	at org.apache.maven.DefaultMaven.doExecute(DefaultMaven.java:194)
+	at org.apache.maven.DefaultMaven.execute(DefaultMaven.java:107)
+	at org.apache.maven.cli.MavenCli.execute(MavenCli.java:993)
+	at org.apache.maven.cli.MavenCli.doMain(MavenCli.java:345)
+	at org.apache.maven.cli.MavenCli.main(MavenCli.java:191)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.codehaus.plexus.classworlds.launcher.Launcher.launchEnhanced(Launcher.java:289)
+	at org.codehaus.plexus.classworlds.launcher.Launcher.launch(Launcher.java:229)
+	at org.codehaus.plexus.classworlds.launcher.Launcher.mainWithExitCode(Launcher.java:415)
+	at org.codehaus.plexus.classworlds.launcher.Launcher.main(Launcher.java:356)
+	at org.codehaus.classworlds.Launcher.main(Launcher.java:47)
+Caused by: java.lang.NoClassDefFoundError: org/hibernate/cache/spi/RegionFactory
+	at java.lang.Class.getDeclaredMethods0(Native Method)
+	at java.lang.Class.privateGetDeclaredMethods(Class.java:2701)
+	at java.lang.Class.getDeclaredMethods(Class.java:1975)
+	at org.springframework.util.ReflectionUtils.getDeclaredMethods(ReflectionUtils.java:613)
+	at org.springframework.util.ReflectionUtils.doWithMethods(ReflectionUtils.java:524)
+	at org.springframework.util.ReflectionUtils.doWithMethods(ReflectionUtils.java:510)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.determineCandidateConstructors(AutowiredAnnotationBeanPostProcessor.java:247)
+	... 57 more
+Caused by: java.lang.ClassNotFoundException: org.hibernate.cache.spi.RegionFactory
+	at org.codehaus.plexus.classworlds.strategy.SelfFirstStrategy.loadClass(SelfFirstStrategy.java:50)
+	at org.codehaus.plexus.classworlds.realm.ClassRealm.unsynchronizedLoadClass(ClassRealm.java:271)
+	at org.codehaus.plexus.classworlds.realm.ClassRealm.loadClass(ClassRealm.java:247)
+	at org.codehaus.plexus.classworlds.realm.ClassRealm.loadClass(ClassRealm.java:239)
+	at org.mortbay.jetty.webapp.WebAppClassLoader.loadClass(WebAppClassLoader.java:401)
+	at org.mortbay.jetty.webapp.WebAppClassLoader.loadClass(WebAppClassLoader.java:363)
+	... 64 more
+INFO main org.springframework.web.context.ContextLoader -Root WebApplicationContext: initialization started
+INFO main org.springframework.web.context.support.XmlWebApplicationContext -Refreshing Root WebApplicationContext: startup date [Tue Aug 29 11:33:48 CST 2017]; root of context hierarchy
+INFO main org.springframework.beans.factory.xml.XmlBeanDefinitionReader -Loading XML bean definitions from file [/Users/fei/Documents/Workspace/IDEAWorkspace/J2EE/SSHBlog/target/classes/applicationContext.xml]
+INFO main org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor -JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+INFO main org.springframework.jdbc.datasource.DriverManagerDataSource -Loaded JDBC driver: com.mysql.jdbc.Driver
+WARN main org.springframework.web.context.support.XmlWebApplicationContext -Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'sessionFactory': Failed to introspect bean class [org.springframework.orm.hibernate4.LocalSessionFactoryBean] for lookup method metadata: could not find class that it depends on; nested exception is java.lang.NoClassDefFoundError: org/hibernate/cache/spi/RegionFactory
+ERROR main org.springframework.web.context.ContextLoader -Context initialization failed
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'sessionFactory': Failed to introspect bean class [org.springframework.orm.hibernate4.LocalSessionFactoryBean] for lookup method metadata: could not find class that it depends on; nested exception is java.lang.NoClassDefFoundError: org/hibernate/cache/spi/RegionFactory
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.determineCandidateConstructors(AutowiredAnnotationBeanPostProcessor.java:269)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.determineConstructorsFromBeanPostProcessors(AbstractAutowireCapableBeanFactory.java:1118)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1091)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:513)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:483)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:306)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:230)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:302)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:197)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:742)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:867)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:543)
+	at org.springframework.web.context.ContextLoader.configureAndRefreshWebApplicationContext(ContextLoader.java:443)
+	at org.springframework.web.context.ContextLoader.initWebApplicationContext(ContextLoader.java:325)
+	at org.springframework.web.context.ContextLoaderListener.contextInitialized(ContextLoaderListener.java:107)
+	at org.mortbay.jetty.handler.ContextHandler.startContext(ContextHandler.java:548)
+	at org.mortbay.jetty.servlet.Context.startContext(Context.java:136)
+	at org.mortbay.jetty.webapp.WebAppContext.startContext(WebAppContext.java:1239)
+	at org.mortbay.jetty.handler.ContextHandler.doStart(ContextHandler.java:517)
+	at org.mortbay.jetty.webapp.WebAppContext.doStart(WebAppContext.java:466)
+	at org.mortbay.jetty.plugin.Jetty6PluginWebAppContext.doStart(Jetty6PluginWebAppContext.java:124)
+	at org.mortbay.component.AbstractLifeCycle.start(AbstractLifeCycle.java:50)
+	at org.mortbay.jetty.handler.HandlerCollection.doStart(HandlerCollection.java:152)
+	at org.mortbay.jetty.handler.ContextHandlerCollection.doStart(ContextHandlerCollection.java:156)
+	at org.mortbay.component.AbstractLifeCycle.start(AbstractLifeCycle.java:50)
+	at org.mortbay.jetty.handler.HandlerCollection.doStart(HandlerCollection.java:152)
+	at org.mortbay.component.AbstractLifeCycle.start(AbstractLifeCycle.java:50)
+	at org.mortbay.jetty.handler.HandlerWrapper.doStart(HandlerWrapper.java:130)
+	at org.mortbay.jetty.Server.doStart(Server.java:224)
+	at org.mortbay.component.AbstractLifeCycle.start(AbstractLifeCycle.java:50)
+	at org.mortbay.jetty.plugin.Jetty6PluginServer.start(Jetty6PluginServer.java:132)
+	at org.mortbay.jetty.plugin.AbstractJettyMojo.startJetty(AbstractJettyMojo.java:441)
+	at org.mortbay.jetty.plugin.AbstractJettyMojo.execute(AbstractJettyMojo.java:383)
+	at org.mortbay.jetty.plugin.AbstractJettyRunMojo.execute(AbstractJettyRunMojo.java:210)
+	at org.mortbay.jetty.plugin.Jetty6RunMojo.execute(Jetty6RunMojo.java:184)
+	at org.apache.maven.plugin.DefaultBuildPluginManager.executeMojo(DefaultBuildPluginManager.java:134)
+	at org.apache.maven.lifecycle.internal.MojoExecutor.execute(MojoExecutor.java:208)
+	at org.apache.maven.lifecycle.internal.MojoExecutor.execute(MojoExecutor.java:154)
+	at org.apache.maven.lifecycle.internal.MojoExecutor.execute(MojoExecutor.java:146)
+	at org.apache.maven.lifecycle.internal.LifecycleModuleBuilder.buildProject(LifecycleModuleBuilder.java:117)
+	at org.apache.maven.lifecycle.internal.LifecycleModuleBuilder.buildProject(LifecycleModuleBuilder.java:81)
+	at org.apache.maven.lifecycle.internal.builder.singlethreaded.SingleThreadedBuilder.build(SingleThreadedBuilder.java:51)
+	at org.apache.maven.lifecycle.internal.LifecycleStarter.execute(LifecycleStarter.java:128)
+	at org.apache.maven.DefaultMaven.doExecute(DefaultMaven.java:309)
+	at org.apache.maven.DefaultMaven.doExecute(DefaultMaven.java:194)
+	at org.apache.maven.DefaultMaven.execute(DefaultMaven.java:107)
+	at org.apache.maven.cli.MavenCli.execute(MavenCli.java:993)
+	at org.apache.maven.cli.MavenCli.doMain(MavenCli.java:345)
+	at org.apache.maven.cli.MavenCli.main(MavenCli.java:191)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.codehaus.plexus.classworlds.launcher.Launcher.launchEnhanced(Launcher.java:289)
+	at org.codehaus.plexus.classworlds.launcher.Launcher.launch(Launcher.java:229)
+	at org.codehaus.plexus.classworlds.launcher.Launcher.mainWithExitCode(Launcher.java:415)
+	at org.codehaus.plexus.classworlds.launcher.Launcher.main(Launcher.java:356)
+	at org.codehaus.classworlds.Launcher.main(Launcher.java:47)
+Caused by: java.lang.NoClassDefFoundError: org/hibernate/cache/spi/RegionFactory
+	at java.lang.Class.getDeclaredMethods0(Native Method)
+	at java.lang.Class.privateGetDeclaredMethods(Class.java:2701)
+	at java.lang.Class.getDeclaredMethods(Class.java:1975)
+	at org.springframework.util.ReflectionUtils.getDeclaredMethods(ReflectionUtils.java:613)
+	at org.springframework.util.ReflectionUtils.doWithMethods(ReflectionUtils.java:524)
+	at org.springframework.util.ReflectionUtils.doWithMethods(ReflectionUtils.java:510)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.determineCandidateConstructors(AutowiredAnnotationBeanPostProcessor.java:247)
+	... 57 more
+Caused by: java.lang.ClassNotFoundException: org.hibernate.cache.spi.RegionFactory
+	at org.codehaus.plexus.classworlds.strategy.SelfFirstStrategy.loadClass(SelfFirstStrategy.java:50)
+	at org.codehaus.plexus.classworlds.realm.ClassRealm.unsynchronizedLoadClass(ClassRealm.java:271)
+	at org.codehaus.plexus.classworlds.realm.ClassRealm.loadClass(ClassRealm.java:247)
+	at org.codehaus.plexus.classworlds.realm.ClassRealm.loadClass(ClassRealm.java:239)
+	at org.mortbay.jetty.webapp.WebAppClassLoader.loadClass(WebAppClassLoader.java:401)
+	at org.mortbay.jetty.webapp.WebAppClassLoader.loadClass(WebAppClassLoader.java:363)
+	... 64 more
+INFO main org.springframework.web.context.ContextLoader -Root WebApplicationContext: initialization started
+INFO main org.springframework.web.context.support.XmlWebApplicationContext -Refreshing Root WebApplicationContext: startup date [Tue Aug 29 11:37:51 CST 2017]; root of context hierarchy
+INFO main org.springframework.beans.factory.xml.XmlBeanDefinitionReader -Loading XML bean definitions from file [/Users/fei/Documents/Workspace/IDEAWorkspace/J2EE/SSHBlog/target/classes/applicationContext.xml]
+INFO main org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor -JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+INFO main org.springframework.jdbc.datasource.DriverManagerDataSource -Loaded JDBC driver: com.mysql.jdbc.Driver
+WARN main org.springframework.web.context.support.XmlWebApplicationContext -Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'sessionFactory': Failed to introspect bean class [org.springframework.orm.hibernate4.LocalSessionFactoryBean] for lookup method metadata: could not find class that it depends on; nested exception is java.lang.NoClassDefFoundError: org/hibernate/cache/spi/RegionFactory
+ERROR main org.springframework.web.context.ContextLoader -Context initialization failed
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'sessionFactory': Failed to introspect bean class [org.springframework.orm.hibernate4.LocalSessionFactoryBean] for lookup method metadata: could not find class that it depends on; nested exception is java.lang.NoClassDefFoundError: org/hibernate/cache/spi/RegionFactory
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.determineCandidateConstructors(AutowiredAnnotationBeanPostProcessor.java:269)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.determineConstructorsFromBeanPostProcessors(AbstractAutowireCapableBeanFactory.java:1118)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1091)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:513)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:483)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:306)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:230)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:302)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:197)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:742)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:867)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:543)
+	at org.springframework.web.context.ContextLoader.configureAndRefreshWebApplicationContext(ContextLoader.java:443)
+	at org.springframework.web.context.ContextLoader.initWebApplicationContext(ContextLoader.java:325)
+	at org.springframework.web.context.ContextLoaderListener.contextInitialized(ContextLoaderListener.java:107)
+	at org.mortbay.jetty.handler.ContextHandler.startContext(ContextHandler.java:548)
+	at org.mortbay.jetty.servlet.Context.startContext(Context.java:136)
+	at org.mortbay.jetty.webapp.WebAppContext.startContext(WebAppContext.java:1239)
+	at org.mortbay.jetty.handler.ContextHandler.doStart(ContextHandler.java:517)
+	at org.mortbay.jetty.webapp.WebAppContext.doStart(WebAppContext.java:466)
+	at org.mortbay.jetty.plugin.Jetty6PluginWebAppContext.doStart(Jetty6PluginWebAppContext.java:124)
+	at org.mortbay.component.AbstractLifeCycle.start(AbstractLifeCycle.java:50)
+	at org.mortbay.jetty.handler.HandlerCollection.doStart(HandlerCollection.java:152)
+	at org.mortbay.jetty.handler.ContextHandlerCollection.doStart(ContextHandlerCollection.java:156)
+	at org.mortbay.component.AbstractLifeCycle.start(AbstractLifeCycle.java:50)
+	at org.mortbay.jetty.handler.HandlerCollection.doStart(HandlerCollection.java:152)
+	at org.mortbay.component.AbstractLifeCycle.start(AbstractLifeCycle.java:50)
+	at org.mortbay.jetty.handler.HandlerWrapper.doStart(HandlerWrapper.java:130)
+	at org.mortbay.jetty.Server.doStart(Server.java:224)
+	at org.mortbay.component.AbstractLifeCycle.start(AbstractLifeCycle.java:50)
+	at org.mortbay.jetty.plugin.Jetty6PluginServer.start(Jetty6PluginServer.java:132)
+	at org.mortbay.jetty.plugin.AbstractJettyMojo.startJetty(AbstractJettyMojo.java:441)
+	at org.mortbay.jetty.plugin.AbstractJettyMojo.execute(AbstractJettyMojo.java:383)
+	at org.mortbay.jetty.plugin.AbstractJettyRunMojo.execute(AbstractJettyRunMojo.java:210)
+	at org.mortbay.jetty.plugin.Jetty6RunMojo.execute(Jetty6RunMojo.java:184)
+	at org.apache.maven.plugin.DefaultBuildPluginManager.executeMojo(DefaultBuildPluginManager.java:134)
+	at org.apache.maven.lifecycle.internal.MojoExecutor.execute(MojoExecutor.java:208)
+	at org.apache.maven.lifecycle.internal.MojoExecutor.execute(MojoExecutor.java:154)
+	at org.apache.maven.lifecycle.internal.MojoExecutor.execute(MojoExecutor.java:146)
+	at org.apache.maven.lifecycle.internal.LifecycleModuleBuilder.buildProject(LifecycleModuleBuilder.java:117)
+	at org.apache.maven.lifecycle.internal.LifecycleModuleBuilder.buildProject(LifecycleModuleBuilder.java:81)
+	at org.apache.maven.lifecycle.internal.builder.singlethreaded.SingleThreadedBuilder.build(SingleThreadedBuilder.java:51)
+	at org.apache.maven.lifecycle.internal.LifecycleStarter.execute(LifecycleStarter.java:128)
+	at org.apache.maven.DefaultMaven.doExecute(DefaultMaven.java:309)
+	at org.apache.maven.DefaultMaven.doExecute(DefaultMaven.java:194)
+	at org.apache.maven.DefaultMaven.execute(DefaultMaven.java:107)
+	at org.apache.maven.cli.MavenCli.execute(MavenCli.java:993)
+	at org.apache.maven.cli.MavenCli.doMain(MavenCli.java:345)
+	at org.apache.maven.cli.MavenCli.main(MavenCli.java:191)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.codehaus.plexus.classworlds.launcher.Launcher.launchEnhanced(Launcher.java:289)
+	at org.codehaus.plexus.classworlds.launcher.Launcher.launch(Launcher.java:229)
+	at org.codehaus.plexus.classworlds.launcher.Launcher.mainWithExitCode(Launcher.java:415)
+	at org.codehaus.plexus.classworlds.launcher.Launcher.main(Launcher.java:356)
+	at org.codehaus.classworlds.Launcher.main(Launcher.java:47)
+Caused by: java.lang.NoClassDefFoundError: org/hibernate/cache/spi/RegionFactory
+	at java.lang.Class.getDeclaredMethods0(Native Method)
+	at java.lang.Class.privateGetDeclaredMethods(Class.java:2701)
+	at java.lang.Class.getDeclaredMethods(Class.java:1975)
+	at org.springframework.util.ReflectionUtils.getDeclaredMethods(ReflectionUtils.java:613)
+	at org.springframework.util.ReflectionUtils.doWithMethods(ReflectionUtils.java:524)
+	at org.springframework.util.ReflectionUtils.doWithMethods(ReflectionUtils.java:510)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.determineCandidateConstructors(AutowiredAnnotationBeanPostProcessor.java:247)
+	... 57 more
+Caused by: java.lang.ClassNotFoundException: org.hibernate.cache.spi.RegionFactory
+	at org.codehaus.plexus.classworlds.strategy.SelfFirstStrategy.loadClass(SelfFirstStrategy.java:50)
+	at org.codehaus.plexus.classworlds.realm.ClassRealm.unsynchronizedLoadClass(ClassRealm.java:271)
+	at org.codehaus.plexus.classworlds.realm.ClassRealm.loadClass(ClassRealm.java:247)
+	at org.codehaus.plexus.classworlds.realm.ClassRealm.loadClass(ClassRealm.java:239)
+	at org.mortbay.jetty.webapp.WebAppClassLoader.loadClass(WebAppClassLoader.java:401)
+	at org.mortbay.jetty.webapp.WebAppClassLoader.loadClass(WebAppClassLoader.java:363)
+	... 64 more
+INFO main org.springframework.web.context.ContextLoader -Root WebApplicationContext: initialization started
+INFO main org.springframework.web.context.support.XmlWebApplicationContext -Refreshing Root WebApplicationContext: startup date [Tue Aug 29 11:45:12 CST 2017]; root of context hierarchy
+INFO main org.springframework.beans.factory.xml.XmlBeanDefinitionReader -Loading XML bean definitions from file [/Users/fei/Documents/Workspace/IDEAWorkspace/J2EE/SSHBlog/target/classes/applicationContext.xml]
+INFO main org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor -JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+INFO main org.springframework.jdbc.datasource.DriverManagerDataSource -Loaded JDBC driver: com.mysql.jdbc.Driver
+WARN main org.springframework.web.context.support.XmlWebApplicationContext -Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'sessionFactory': Failed to introspect bean class [org.springframework.orm.hibernate4.LocalSessionFactoryBean] for lookup method metadata: could not find class that it depends on; nested exception is java.lang.NoClassDefFoundError: org/hibernate/cache/spi/RegionFactory
+ERROR main org.springframework.web.context.ContextLoader -Context initialization failed
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'sessionFactory': Failed to introspect bean class [org.springframework.orm.hibernate4.LocalSessionFactoryBean] for lookup method metadata: could not find class that it depends on; nested exception is java.lang.NoClassDefFoundError: org/hibernate/cache/spi/RegionFactory
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.determineCandidateConstructors(AutowiredAnnotationBeanPostProcessor.java:269)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.determineConstructorsFromBeanPostProcessors(AbstractAutowireCapableBeanFactory.java:1118)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1091)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:513)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:483)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:306)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:230)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:302)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:197)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:742)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:867)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:543)
+	at org.springframework.web.context.ContextLoader.configureAndRefreshWebApplicationContext(ContextLoader.java:443)
+	at org.springframework.web.context.ContextLoader.initWebApplicationContext(ContextLoader.java:325)
+	at org.springframework.web.context.ContextLoaderListener.contextInitialized(ContextLoaderListener.java:107)
+	at org.mortbay.jetty.handler.ContextHandler.startContext(ContextHandler.java:548)
+	at org.mortbay.jetty.servlet.Context.startContext(Context.java:136)
+	at org.mortbay.jetty.webapp.WebAppContext.startContext(WebAppContext.java:1239)
+	at org.mortbay.jetty.handler.ContextHandler.doStart(ContextHandler.java:517)
+	at org.mortbay.jetty.webapp.WebAppContext.doStart(WebAppContext.java:466)
+	at org.mortbay.jetty.plugin.Jetty6PluginWebAppContext.doStart(Jetty6PluginWebAppContext.java:124)
+	at org.mortbay.component.AbstractLifeCycle.start(AbstractLifeCycle.java:50)
+	at org.mortbay.jetty.handler.HandlerCollection.doStart(HandlerCollection.java:152)
+	at org.mortbay.jetty.handler.ContextHandlerCollection.doStart(ContextHandlerCollection.java:156)
+	at org.mortbay.component.AbstractLifeCycle.start(AbstractLifeCycle.java:50)
+	at org.mortbay.jetty.handler.HandlerCollection.doStart(HandlerCollection.java:152)
+	at org.mortbay.component.AbstractLifeCycle.start(AbstractLifeCycle.java:50)
+	at org.mortbay.jetty.handler.HandlerWrapper.doStart(HandlerWrapper.java:130)
+	at org.mortbay.jetty.Server.doStart(Server.java:224)
+	at org.mortbay.component.AbstractLifeCycle.start(AbstractLifeCycle.java:50)
+	at org.mortbay.jetty.plugin.Jetty6PluginServer.start(Jetty6PluginServer.java:132)
+	at org.mortbay.jetty.plugin.AbstractJettyMojo.startJetty(AbstractJettyMojo.java:441)
+	at org.mortbay.jetty.plugin.AbstractJettyMojo.execute(AbstractJettyMojo.java:383)
+	at org.mortbay.jetty.plugin.AbstractJettyRunMojo.execute(AbstractJettyRunMojo.java:210)
+	at org.mortbay.jetty.plugin.Jetty6RunMojo.execute(Jetty6RunMojo.java:184)
+	at org.apache.maven.plugin.DefaultBuildPluginManager.executeMojo(DefaultBuildPluginManager.java:134)
+	at org.apache.maven.lifecycle.internal.MojoExecutor.execute(MojoExecutor.java:208)
+	at org.apache.maven.lifecycle.internal.MojoExecutor.execute(MojoExecutor.java:154)
+	at org.apache.maven.lifecycle.internal.MojoExecutor.execute(MojoExecutor.java:146)
+	at org.apache.maven.lifecycle.internal.LifecycleModuleBuilder.buildProject(LifecycleModuleBuilder.java:117)
+	at org.apache.maven.lifecycle.internal.LifecycleModuleBuilder.buildProject(LifecycleModuleBuilder.java:81)
+	at org.apache.maven.lifecycle.internal.builder.singlethreaded.SingleThreadedBuilder.build(SingleThreadedBuilder.java:51)
+	at org.apache.maven.lifecycle.internal.LifecycleStarter.execute(LifecycleStarter.java:128)
+	at org.apache.maven.DefaultMaven.doExecute(DefaultMaven.java:309)
+	at org.apache.maven.DefaultMaven.doExecute(DefaultMaven.java:194)
+	at org.apache.maven.DefaultMaven.execute(DefaultMaven.java:107)
+	at org.apache.maven.cli.MavenCli.execute(MavenCli.java:993)
+	at org.apache.maven.cli.MavenCli.doMain(MavenCli.java:345)
+	at org.apache.maven.cli.MavenCli.main(MavenCli.java:191)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.codehaus.plexus.classworlds.launcher.Launcher.launchEnhanced(Launcher.java:289)
+	at org.codehaus.plexus.classworlds.launcher.Launcher.launch(Launcher.java:229)
+	at org.codehaus.plexus.classworlds.launcher.Launcher.mainWithExitCode(Launcher.java:415)
+	at org.codehaus.plexus.classworlds.launcher.Launcher.main(Launcher.java:356)
+	at org.codehaus.classworlds.Launcher.main(Launcher.java:47)
+Caused by: java.lang.NoClassDefFoundError: org/hibernate/cache/spi/RegionFactory
+	at java.lang.Class.getDeclaredMethods0(Native Method)
+	at java.lang.Class.privateGetDeclaredMethods(Class.java:2701)
+	at java.lang.Class.getDeclaredMethods(Class.java:1975)
+	at org.springframework.util.ReflectionUtils.getDeclaredMethods(ReflectionUtils.java:613)
+	at org.springframework.util.ReflectionUtils.doWithMethods(ReflectionUtils.java:524)
+	at org.springframework.util.ReflectionUtils.doWithMethods(ReflectionUtils.java:510)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.determineCandidateConstructors(AutowiredAnnotationBeanPostProcessor.java:247)
+	... 57 more
+Caused by: java.lang.ClassNotFoundException: org.hibernate.cache.spi.RegionFactory
+	at org.codehaus.plexus.classworlds.strategy.SelfFirstStrategy.loadClass(SelfFirstStrategy.java:50)
+	at org.codehaus.plexus.classworlds.realm.ClassRealm.unsynchronizedLoadClass(ClassRealm.java:271)
+	at org.codehaus.plexus.classworlds.realm.ClassRealm.loadClass(ClassRealm.java:247)
+	at org.codehaus.plexus.classworlds.realm.ClassRealm.loadClass(ClassRealm.java:239)
+	at org.mortbay.jetty.webapp.WebAppClassLoader.loadClass(WebAppClassLoader.java:401)
+	at org.mortbay.jetty.webapp.WebAppClassLoader.loadClass(WebAppClassLoader.java:363)
+	... 64 more
+INFO main org.springframework.web.context.ContextLoader -Root WebApplicationContext: initialization started
+INFO main org.springframework.web.context.support.XmlWebApplicationContext -Refreshing Root WebApplicationContext: startup date [Tue Aug 29 12:40:04 CST 2017]; root of context hierarchy
+INFO main org.springframework.beans.factory.xml.XmlBeanDefinitionReader -Loading XML bean definitions from file [/Users/fei/Documents/Workspace/IDEAWorkspace/J2EE/SSHBlog/target/classes/applicationContext.xml]
+INFO main org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor -JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+INFO main org.springframework.jdbc.datasource.DriverManagerDataSource -Loaded JDBC driver: com.mysql.jdbc.Driver
+INFO main org.hibernate.annotations.common.Version -Hibernate Commons Annotations 3.2.0.Final
+INFO main org.hibernate.cfg.Environment -Hibernate 3.6.10.Final
+INFO main org.hibernate.cfg.Environment -hibernate.properties not found
+INFO main org.hibernate.cfg.Environment -Bytecode provider name : javassist
+INFO main org.hibernate.cfg.Environment -using JDK 1.4 java.sql.Timestamp handling
+INFO main org.hibernate.cfg.AnnotationBinder -Binding entity from annotated class: com.sshblog.entity.Contacts
+INFO main org.hibernate.cfg.annotations.EntityBinder -Bind entity com.sshblog.entity.Contacts on table contacts
+INFO main org.hibernate.cfg.Configuration -Hibernate Validator not found: ignoring
+INFO main org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean -Building new Hibernate SessionFactory
+INFO main org.hibernate.cfg.search.HibernateSearchEventListenerRegister -Unable to find org.hibernate.search.event.FullTextIndexEventListener on the classpath. Hibernate Search is not enabled.
+INFO main org.hibernate.connection.ConnectionProviderFactory -Initializing connection provider: org.springframework.orm.hibernate3.LocalDataSourceConnectionProvider
+INFO main org.hibernate.dialect.Dialect -Using dialect: org.hibernate.dialect.MySQLDialect
+INFO main org.hibernate.cfg.SettingsFactory -Database ->
+       name : MySQL
+    version : 5.7.19
+      major : 5
+      minor : 7
+INFO main org.hibernate.cfg.SettingsFactory -Driver ->
+       name : MySQL Connector Java
+    version : mysql-connector-java-5.1.43 ( Revision: 1d14b699eff3e6112aaedb1cbe5a151ab81f98f1 )
+      major : 5
+      minor : 1
+INFO main org.hibernate.transaction.TransactionFactoryFactory -Transaction strategy: org.springframework.orm.hibernate3.SpringTransactionFactory
+INFO main org.hibernate.transaction.TransactionManagerLookupFactory -No TransactionManagerLookup configured (in JTA environment, use of read-write or transactional second-level cache is not recommended)
+INFO main org.hibernate.cfg.SettingsFactory -Automatic flush during beforeCompletion(): disabled
+INFO main org.hibernate.cfg.SettingsFactory -Automatic session close at end of transaction: disabled
+INFO main org.hibernate.cfg.SettingsFactory -JDBC batch size: 15
+INFO main org.hibernate.cfg.SettingsFactory -JDBC batch updates for versioned data: disabled
+INFO main org.hibernate.cfg.SettingsFactory -Scrollable result sets: enabled
+INFO main org.hibernate.cfg.SettingsFactory -JDBC3 getGeneratedKeys(): enabled
+INFO main org.hibernate.cfg.SettingsFactory -Connection release mode: auto
+INFO main org.hibernate.cfg.SettingsFactory -Maximum outer join fetch depth: 2
+INFO main org.hibernate.cfg.SettingsFactory -Default batch fetch size: 1
+INFO main org.hibernate.cfg.SettingsFactory -Generate SQL with comments: disabled
+INFO main org.hibernate.cfg.SettingsFactory -Order SQL updates by primary key: disabled
+INFO main org.hibernate.cfg.SettingsFactory -Order SQL inserts for batching: disabled
+INFO main org.hibernate.cfg.SettingsFactory -Query translator: org.hibernate.hql.ast.ASTQueryTranslatorFactory
+INFO main org.hibernate.hql.ast.ASTQueryTranslatorFactory -Using ASTQueryTranslatorFactory
+INFO main org.hibernate.cfg.SettingsFactory -Query language substitutions: {}
+INFO main org.hibernate.cfg.SettingsFactory -JPA-QL strict compliance: disabled
+INFO main org.hibernate.cfg.SettingsFactory -Second-level cache: enabled
+INFO main org.hibernate.cfg.SettingsFactory -Query cache: disabled
+INFO main org.hibernate.cfg.SettingsFactory -Cache region factory : org.hibernate.cache.impl.NoCachingRegionFactory
+INFO main org.hibernate.cfg.SettingsFactory -Optimize cache for minimal puts: disabled
+INFO main org.hibernate.cfg.SettingsFactory -Structured second-level cache entries: disabled
+INFO main org.hibernate.cfg.SettingsFactory -Echoing all SQL to stdout
+INFO main org.hibernate.cfg.SettingsFactory -Statistics: enabled
+INFO main org.hibernate.cfg.SettingsFactory -Deleted entity synthetic identifier rollback: disabled
+INFO main org.hibernate.cfg.SettingsFactory -Default entity-mode: pojo
+INFO main org.hibernate.cfg.SettingsFactory -Named query checking : enabled
+INFO main org.hibernate.cfg.SettingsFactory -Check Nullability in Core (should be disabled when Bean Validation is on): enabled
+INFO main org.hibernate.impl.SessionFactoryImpl -building session factory
+INFO main org.hibernate.type.BasicTypeRegistry -Type registration [materialized_blob] overrides previous : org.hibernate.type.MaterializedBlobType@3cb6e0ee
+INFO main org.hibernate.type.BasicTypeRegistry -Type registration [wrapper_characters_clob] overrides previous : org.hibernate.type.CharacterArrayClobType@7b6141f0
+INFO main org.hibernate.type.BasicTypeRegistry -Type registration [materialized_clob] overrides previous : org.hibernate.type.MaterializedClobType@4fb64a52
+INFO main org.hibernate.type.BasicTypeRegistry -Type registration [characters_clob] overrides previous : org.hibernate.type.PrimitiveCharacterArrayClobType@70b48eb3
+INFO main org.hibernate.type.BasicTypeRegistry -Type registration [clob] overrides previous : org.hibernate.type.ClobType@7b8ea1db
+INFO main org.hibernate.type.BasicTypeRegistry -Type registration [java.sql.Clob] overrides previous : org.hibernate.type.ClobType@7b8ea1db
+INFO main org.hibernate.type.BasicTypeRegistry -Type registration [wrapper_materialized_blob] overrides previous : org.hibernate.type.WrappedMaterializedBlobType@a91119b
+INFO main org.hibernate.type.BasicTypeRegistry -Type registration [blob] overrides previous : org.hibernate.type.BlobType@77083e41
+INFO main org.hibernate.type.BasicTypeRegistry -Type registration [java.sql.Blob] overrides previous : org.hibernate.type.BlobType@77083e41
+INFO main org.hibernate.impl.SessionFactoryObjectFactory -Not binding factory to JNDI, no JNDI name configured
+INFO main org.hibernate.tool.hbm2ddl.SchemaUpdate -Running hbm2ddl schema update
+INFO main org.hibernate.tool.hbm2ddl.SchemaUpdate -fetching database metadata
+INFO main org.hibernate.tool.hbm2ddl.SchemaUpdate -updating schema
+INFO main org.hibernate.tool.hbm2ddl.TableMetadata -table found: SSHBlog.contacts
+INFO main org.hibernate.tool.hbm2ddl.TableMetadata -columns: [address, gender, dob, name, mobile, id, email]
+INFO main org.hibernate.tool.hbm2ddl.TableMetadata -foreign keys: []
+INFO main org.hibernate.tool.hbm2ddl.TableMetadata -indexes: [primary]
+INFO main org.hibernate.tool.hbm2ddl.SchemaUpdate -schema update complete
+WARN main org.springframework.web.context.support.XmlWebApplicationContext -Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'transactionManager' defined in file [/Users/fei/Documents/Workspace/IDEAWorkspace/J2EE/SSHBlog/target/classes/applicationContext.xml]: Invocation of init method failed; nested exception is java.lang.NoClassDefFoundError: org/hibernate/engine/spi/SessionFactoryImplementor
+INFO main org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean -Closing Hibernate SessionFactory
+INFO main org.hibernate.impl.SessionFactoryImpl -closing
+ERROR main org.springframework.web.context.ContextLoader -Context initialization failed
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'transactionManager' defined in file [/Users/fei/Documents/Workspace/IDEAWorkspace/J2EE/SSHBlog/target/classes/applicationContext.xml]: Invocation of init method failed; nested exception is java.lang.NoClassDefFoundError: org/hibernate/engine/spi/SessionFactoryImplementor
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1628)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:555)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:483)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:306)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:230)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:302)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:197)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:761)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:867)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:543)
+	at org.springframework.web.context.ContextLoader.configureAndRefreshWebApplicationContext(ContextLoader.java:443)
+	at org.springframework.web.context.ContextLoader.initWebApplicationContext(ContextLoader.java:325)
+	at org.springframework.web.context.ContextLoaderListener.contextInitialized(ContextLoaderListener.java:107)
+	at org.mortbay.jetty.handler.ContextHandler.startContext(ContextHandler.java:548)
+	at org.mortbay.jetty.servlet.Context.startContext(Context.java:136)
+	at org.mortbay.jetty.webapp.WebAppContext.startContext(WebAppContext.java:1239)
+	at org.mortbay.jetty.handler.ContextHandler.doStart(ContextHandler.java:517)
+	at org.mortbay.jetty.webapp.WebAppContext.doStart(WebAppContext.java:466)
+	at org.mortbay.jetty.plugin.Jetty6PluginWebAppContext.doStart(Jetty6PluginWebAppContext.java:124)
+	at org.mortbay.component.AbstractLifeCycle.start(AbstractLifeCycle.java:50)
+	at org.mortbay.jetty.handler.HandlerCollection.doStart(HandlerCollection.java:152)
+	at org.mortbay.jetty.handler.ContextHandlerCollection.doStart(ContextHandlerCollection.java:156)
+	at org.mortbay.component.AbstractLifeCycle.start(AbstractLifeCycle.java:50)
+	at org.mortbay.jetty.handler.HandlerCollection.doStart(HandlerCollection.java:152)
+	at org.mortbay.component.AbstractLifeCycle.start(AbstractLifeCycle.java:50)
+	at org.mortbay.jetty.handler.HandlerWrapper.doStart(HandlerWrapper.java:130)
+	at org.mortbay.jetty.Server.doStart(Server.java:224)
+	at org.mortbay.component.AbstractLifeCycle.start(AbstractLifeCycle.java:50)
+	at org.mortbay.jetty.plugin.Jetty6PluginServer.start(Jetty6PluginServer.java:132)
+	at org.mortbay.jetty.plugin.AbstractJettyMojo.startJetty(AbstractJettyMojo.java:441)
+	at org.mortbay.jetty.plugin.AbstractJettyMojo.execute(AbstractJettyMojo.java:383)
+	at org.mortbay.jetty.plugin.AbstractJettyRunMojo.execute(AbstractJettyRunMojo.java:210)
+	at org.mortbay.jetty.plugin.Jetty6RunMojo.execute(Jetty6RunMojo.java:184)
+	at org.apache.maven.plugin.DefaultBuildPluginManager.executeMojo(DefaultBuildPluginManager.java:134)
+	at org.apache.maven.lifecycle.internal.MojoExecutor.execute(MojoExecutor.java:208)
+	at org.apache.maven.lifecycle.internal.MojoExecutor.execute(MojoExecutor.java:154)
+	at org.apache.maven.lifecycle.internal.MojoExecutor.execute(MojoExecutor.java:146)
+	at org.apache.maven.lifecycle.internal.LifecycleModuleBuilder.buildProject(LifecycleModuleBuilder.java:117)
+	at org.apache.maven.lifecycle.internal.LifecycleModuleBuilder.buildProject(LifecycleModuleBuilder.java:81)
+	at org.apache.maven.lifecycle.internal.builder.singlethreaded.SingleThreadedBuilder.build(SingleThreadedBuilder.java:51)
+	at org.apache.maven.lifecycle.internal.LifecycleStarter.execute(LifecycleStarter.java:128)
+	at org.apache.maven.DefaultMaven.doExecute(DefaultMaven.java:309)
+	at org.apache.maven.DefaultMaven.doExecute(DefaultMaven.java:194)
+	at org.apache.maven.DefaultMaven.execute(DefaultMaven.java:107)
+	at org.apache.maven.cli.MavenCli.execute(MavenCli.java:993)
+	at org.apache.maven.cli.MavenCli.doMain(MavenCli.java:345)
+	at org.apache.maven.cli.MavenCli.main(MavenCli.java:191)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.codehaus.plexus.classworlds.launcher.Launcher.launchEnhanced(Launcher.java:289)
+	at org.codehaus.plexus.classworlds.launcher.Launcher.launch(Launcher.java:229)
+	at org.codehaus.plexus.classworlds.launcher.Launcher.mainWithExitCode(Launcher.java:415)
+	at org.codehaus.plexus.classworlds.launcher.Launcher.main(Launcher.java:356)
+	at org.codehaus.classworlds.Launcher.main(Launcher.java:47)
+Caused by: java.lang.NoClassDefFoundError: org/hibernate/engine/spi/SessionFactoryImplementor
+	at org.springframework.orm.hibernate4.SessionFactoryUtils.<clinit>(SessionFactoryUtils.java:92)
+	at org.springframework.orm.hibernate4.HibernateTransactionManager.afterPropertiesSet(HibernateTransactionManager.java:356)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1687)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1624)
+	... 55 more
+Caused by: java.lang.ClassNotFoundException: org.hibernate.engine.spi.SessionFactoryImplementor
+	at org.codehaus.plexus.classworlds.strategy.SelfFirstStrategy.loadClass(SelfFirstStrategy.java:50)
+	at org.codehaus.plexus.classworlds.realm.ClassRealm.unsynchronizedLoadClass(ClassRealm.java:271)
+	at org.codehaus.plexus.classworlds.realm.ClassRealm.loadClass(ClassRealm.java:247)
+	at org.codehaus.plexus.classworlds.realm.ClassRealm.loadClass(ClassRealm.java:239)
+	at org.mortbay.jetty.webapp.WebAppClassLoader.loadClass(WebAppClassLoader.java:401)
+	at org.mortbay.jetty.webapp.WebAppClassLoader.loadClass(WebAppClassLoader.java:363)
+	... 59 more
+INFO main org.springframework.web.context.ContextLoader -Root WebApplicationContext: initialization started
+INFO main org.springframework.web.context.support.XmlWebApplicationContext -Refreshing Root WebApplicationContext: startup date [Tue Aug 29 12:40:30 CST 2017]; root of context hierarchy
+INFO main org.springframework.beans.factory.xml.XmlBeanDefinitionReader -Loading XML bean definitions from file [/Users/fei/Documents/Workspace/IDEAWorkspace/J2EE/SSHBlog/target/classes/applicationContext.xml]
+INFO main org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor -JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+INFO main org.springframework.jdbc.datasource.DriverManagerDataSource -Loaded JDBC driver: com.mysql.jdbc.Driver
+INFO main org.hibernate.annotations.common.Version -Hibernate Commons Annotations 3.2.0.Final
+INFO main org.hibernate.cfg.Environment -Hibernate 3.6.10.Final
+INFO main org.hibernate.cfg.Environment -hibernate.properties not found
+INFO main org.hibernate.cfg.Environment -Bytecode provider name : javassist
+INFO main org.hibernate.cfg.Environment -using JDK 1.4 java.sql.Timestamp handling
+INFO main org.hibernate.cfg.AnnotationBinder -Binding entity from annotated class: com.sshblog.entity.Contacts
+INFO main org.hibernate.cfg.annotations.EntityBinder -Bind entity com.sshblog.entity.Contacts on table contacts
+INFO main org.hibernate.cfg.Configuration -Hibernate Validator not found: ignoring
+INFO main org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean -Building new Hibernate SessionFactory
+INFO main org.hibernate.cfg.search.HibernateSearchEventListenerRegister -Unable to find org.hibernate.search.event.FullTextIndexEventListener on the classpath. Hibernate Search is not enabled.
+INFO main org.hibernate.connection.ConnectionProviderFactory -Initializing connection provider: org.springframework.orm.hibernate3.LocalDataSourceConnectionProvider
+INFO main org.hibernate.dialect.Dialect -Using dialect: org.hibernate.dialect.MySQLDialect
+INFO main org.hibernate.cfg.SettingsFactory -Database ->
+       name : MySQL
+    version : 5.7.19
+      major : 5
+      minor : 7
+INFO main org.hibernate.cfg.SettingsFactory -Driver ->
+       name : MySQL Connector Java
+    version : mysql-connector-java-5.1.43 ( Revision: 1d14b699eff3e6112aaedb1cbe5a151ab81f98f1 )
+      major : 5
+      minor : 1
+INFO main org.hibernate.transaction.TransactionFactoryFactory -Transaction strategy: org.springframework.orm.hibernate3.SpringTransactionFactory
+INFO main org.hibernate.transaction.TransactionManagerLookupFactory -No TransactionManagerLookup configured (in JTA environment, use of read-write or transactional second-level cache is not recommended)
+INFO main org.hibernate.cfg.SettingsFactory -Automatic flush during beforeCompletion(): disabled
+INFO main org.hibernate.cfg.SettingsFactory -Automatic session close at end of transaction: disabled
+INFO main org.hibernate.cfg.SettingsFactory -JDBC batch size: 15
+INFO main org.hibernate.cfg.SettingsFactory -JDBC batch updates for versioned data: disabled
+INFO main org.hibernate.cfg.SettingsFactory -Scrollable result sets: enabled
+INFO main org.hibernate.cfg.SettingsFactory -JDBC3 getGeneratedKeys(): enabled
+INFO main org.hibernate.cfg.SettingsFactory -Connection release mode: auto
+INFO main org.hibernate.cfg.SettingsFactory -Maximum outer join fetch depth: 2
+INFO main org.hibernate.cfg.SettingsFactory -Default batch fetch size: 1
+INFO main org.hibernate.cfg.SettingsFactory -Generate SQL with comments: disabled
+INFO main org.hibernate.cfg.SettingsFactory -Order SQL updates by primary key: disabled
+INFO main org.hibernate.cfg.SettingsFactory -Order SQL inserts for batching: disabled
+INFO main org.hibernate.cfg.SettingsFactory -Query translator: org.hibernate.hql.ast.ASTQueryTranslatorFactory
+INFO main org.hibernate.hql.ast.ASTQueryTranslatorFactory -Using ASTQueryTranslatorFactory
+INFO main org.hibernate.cfg.SettingsFactory -Query language substitutions: {}
+INFO main org.hibernate.cfg.SettingsFactory -JPA-QL strict compliance: disabled
+INFO main org.hibernate.cfg.SettingsFactory -Second-level cache: enabled
+INFO main org.hibernate.cfg.SettingsFactory -Query cache: disabled
+INFO main org.hibernate.cfg.SettingsFactory -Cache region factory : org.hibernate.cache.impl.NoCachingRegionFactory
+INFO main org.hibernate.cfg.SettingsFactory -Optimize cache for minimal puts: disabled
+INFO main org.hibernate.cfg.SettingsFactory -Structured second-level cache entries: disabled
+INFO main org.hibernate.cfg.SettingsFactory -Echoing all SQL to stdout
+INFO main org.hibernate.cfg.SettingsFactory -Statistics: enabled
+INFO main org.hibernate.cfg.SettingsFactory -Deleted entity synthetic identifier rollback: disabled
+INFO main org.hibernate.cfg.SettingsFactory -Default entity-mode: pojo
+INFO main org.hibernate.cfg.SettingsFactory -Named query checking : enabled
+INFO main org.hibernate.cfg.SettingsFactory -Check Nullability in Core (should be disabled when Bean Validation is on): enabled
+INFO main org.hibernate.impl.SessionFactoryImpl -building session factory
+INFO main org.hibernate.type.BasicTypeRegistry -Type registration [materialized_blob] overrides previous : org.hibernate.type.MaterializedBlobType@3cb6e0ee
+INFO main org.hibernate.type.BasicTypeRegistry -Type registration [wrapper_characters_clob] overrides previous : org.hibernate.type.CharacterArrayClobType@7b6141f0
+INFO main org.hibernate.type.BasicTypeRegistry -Type registration [materialized_clob] overrides previous : org.hibernate.type.MaterializedClobType@4fb64a52
+INFO main org.hibernate.type.BasicTypeRegistry -Type registration [characters_clob] overrides previous : org.hibernate.type.PrimitiveCharacterArrayClobType@70b48eb3
+INFO main org.hibernate.type.BasicTypeRegistry -Type registration [clob] overrides previous : org.hibernate.type.ClobType@7b8ea1db
+INFO main org.hibernate.type.BasicTypeRegistry -Type registration [java.sql.Clob] overrides previous : org.hibernate.type.ClobType@7b8ea1db
+INFO main org.hibernate.type.BasicTypeRegistry -Type registration [wrapper_materialized_blob] overrides previous : org.hibernate.type.WrappedMaterializedBlobType@a91119b
+INFO main org.hibernate.type.BasicTypeRegistry -Type registration [blob] overrides previous : org.hibernate.type.BlobType@77083e41
+INFO main org.hibernate.type.BasicTypeRegistry -Type registration [java.sql.Blob] overrides previous : org.hibernate.type.BlobType@77083e41
+INFO main org.hibernate.impl.SessionFactoryObjectFactory -Not binding factory to JNDI, no JNDI name configured
+INFO main org.hibernate.tool.hbm2ddl.SchemaUpdate -Running hbm2ddl schema update
+INFO main org.hibernate.tool.hbm2ddl.SchemaUpdate -fetching database metadata
+INFO main org.hibernate.tool.hbm2ddl.SchemaUpdate -updating schema
+INFO main org.hibernate.tool.hbm2ddl.TableMetadata -table found: SSHBlog.contacts
+INFO main org.hibernate.tool.hbm2ddl.TableMetadata -columns: [address, gender, dob, name, mobile, id, email]
+INFO main org.hibernate.tool.hbm2ddl.TableMetadata -foreign keys: []
+INFO main org.hibernate.tool.hbm2ddl.TableMetadata -indexes: [primary]
+INFO main org.hibernate.tool.hbm2ddl.SchemaUpdate -schema update complete
+INFO main org.springframework.orm.hibernate3.HibernateTransactionManager -Using DataSource [org.springframework.jdbc.datasource.DriverManagerDataSource@7f0b93b4] of Hibernate SessionFactory for HibernateTransactionManager
+INFO main org.springframework.ui.freemarker.SpringTemplateLoader -SpringTemplateLoader for FreeMarker: using resource loader [Root WebApplicationContext: startup date [Tue Aug 29 12:40:30 CST 2017]; root of context hierarchy] and template loader path [/src/main/webapp/frontend/]
+INFO main org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer -ClassTemplateLoader for Spring macros added to FreeMarker configuration
+INFO main org.springframework.web.context.ContextLoader -Root WebApplicationContext: initialization completed in 1085 ms
+INFO main org.springframework.web.servlet.DispatcherServlet -FrameworkServlet 'dispatcher': initialization started
+INFO main org.springframework.web.context.support.XmlWebApplicationContext -Refreshing WebApplicationContext for namespace 'dispatcher-servlet': startup date [Tue Aug 29 12:40:31 CST 2017]; parent: Root WebApplicationContext
+INFO main org.springframework.beans.factory.xml.XmlBeanDefinitionReader -Loading XML bean definitions from class path resource [spring-mvc.xml]
+INFO main org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor -JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+INFO main org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer -ClassTemplateLoader for Spring macros added to FreeMarker configuration
+INFO main org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping -Mapped URL path [/index] onto handler 'SSHBlogController'
+INFO main org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping -Mapped URL path [/index.*] onto handler 'SSHBlogController'
+INFO main org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping -Mapped URL path [/index/] onto handler 'SSHBlogController'
+INFO main org.springframework.web.servlet.DispatcherServlet -FrameworkServlet 'dispatcher': initialization completed in 286 ms
+WARN 1674899618@qtp-1675603360-0 org.springframework.web.servlet.PageNotFound -No mapping found for HTTP request with URI [/frontend/common/500.html] in DispatcherServlet with name 'dispatcher'
+WARN 1674899618@qtp-1675603360-0 org.springframework.web.servlet.PageNotFound -No mapping found for HTTP request with URI [/frontend/common/500.html] in DispatcherServlet with name 'dispatcher'
+WARN 1674899618@qtp-1675603360-0 org.springframework.web.servlet.PageNotFound -No mapping found for HTTP request with URI [/frontend/common/500.html] in DispatcherServlet with name 'dispatcher'
+INFO main org.springframework.web.context.ContextLoader -Root WebApplicationContext: initialization started
+INFO main org.springframework.web.context.support.XmlWebApplicationContext -Refreshing Root WebApplicationContext: startup date [Tue Aug 29 12:47:51 CST 2017]; root of context hierarchy
+INFO main org.springframework.beans.factory.xml.XmlBeanDefinitionReader -Loading XML bean definitions from file [/Users/fei/Documents/Workspace/IDEAWorkspace/J2EE/SSHBlog/target/classes/applicationContext.xml]
+INFO main org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor -JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+INFO main org.springframework.jdbc.datasource.DriverManagerDataSource -Loaded JDBC driver: com.mysql.jdbc.Driver
+INFO main org.hibernate.annotations.common.Version -Hibernate Commons Annotations 3.2.0.Final
+INFO main org.hibernate.cfg.Environment -Hibernate 3.6.10.Final
+INFO main org.hibernate.cfg.Environment -hibernate.properties not found
+INFO main org.hibernate.cfg.Environment -Bytecode provider name : javassist
+INFO main org.hibernate.cfg.Environment -using JDK 1.4 java.sql.Timestamp handling
+INFO main org.hibernate.cfg.AnnotationBinder -Binding entity from annotated class: com.sshblog.entity.Contacts
+INFO main org.hibernate.cfg.annotations.EntityBinder -Bind entity com.sshblog.entity.Contacts on table contacts
+INFO main org.hibernate.cfg.Configuration -Hibernate Validator not found: ignoring
+INFO main org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean -Building new Hibernate SessionFactory
+INFO main org.hibernate.cfg.search.HibernateSearchEventListenerRegister -Unable to find org.hibernate.search.event.FullTextIndexEventListener on the classpath. Hibernate Search is not enabled.
+INFO main org.hibernate.connection.ConnectionProviderFactory -Initializing connection provider: org.springframework.orm.hibernate3.LocalDataSourceConnectionProvider
+INFO main org.hibernate.dialect.Dialect -Using dialect: org.hibernate.dialect.MySQLDialect
+INFO main org.hibernate.cfg.SettingsFactory -Database ->
+       name : MySQL
+    version : 5.7.19
+      major : 5
+      minor : 7
+INFO main org.hibernate.cfg.SettingsFactory -Driver ->
+       name : MySQL Connector Java
+    version : mysql-connector-java-5.1.43 ( Revision: 1d14b699eff3e6112aaedb1cbe5a151ab81f98f1 )
+      major : 5
+      minor : 1
+INFO main org.hibernate.transaction.TransactionFactoryFactory -Transaction strategy: org.springframework.orm.hibernate3.SpringTransactionFactory
+INFO main org.hibernate.transaction.TransactionManagerLookupFactory -No TransactionManagerLookup configured (in JTA environment, use of read-write or transactional second-level cache is not recommended)
+INFO main org.hibernate.cfg.SettingsFactory -Automatic flush during beforeCompletion(): disabled
+INFO main org.hibernate.cfg.SettingsFactory -Automatic session close at end of transaction: disabled
+INFO main org.hibernate.cfg.SettingsFactory -JDBC batch size: 15
+INFO main org.hibernate.cfg.SettingsFactory -JDBC batch updates for versioned data: disabled
+INFO main org.hibernate.cfg.SettingsFactory -Scrollable result sets: enabled
+INFO main org.hibernate.cfg.SettingsFactory -JDBC3 getGeneratedKeys(): enabled
+INFO main org.hibernate.cfg.SettingsFactory -Connection release mode: auto
+INFO main org.hibernate.cfg.SettingsFactory -Maximum outer join fetch depth: 2
+INFO main org.hibernate.cfg.SettingsFactory -Default batch fetch size: 1
+INFO main org.hibernate.cfg.SettingsFactory -Generate SQL with comments: disabled
+INFO main org.hibernate.cfg.SettingsFactory -Order SQL updates by primary key: disabled
+INFO main org.hibernate.cfg.SettingsFactory -Order SQL inserts for batching: disabled
+INFO main org.hibernate.cfg.SettingsFactory -Query translator: org.hibernate.hql.ast.ASTQueryTranslatorFactory
+INFO main org.hibernate.hql.ast.ASTQueryTranslatorFactory -Using ASTQueryTranslatorFactory
+INFO main org.hibernate.cfg.SettingsFactory -Query language substitutions: {}
+INFO main org.hibernate.cfg.SettingsFactory -JPA-QL strict compliance: disabled
+INFO main org.hibernate.cfg.SettingsFactory -Second-level cache: enabled
+INFO main org.hibernate.cfg.SettingsFactory -Query cache: disabled
+INFO main org.hibernate.cfg.SettingsFactory -Cache region factory : org.hibernate.cache.impl.NoCachingRegionFactory
+INFO main org.hibernate.cfg.SettingsFactory -Optimize cache for minimal puts: disabled
+INFO main org.hibernate.cfg.SettingsFactory -Structured second-level cache entries: disabled
+INFO main org.hibernate.cfg.SettingsFactory -Echoing all SQL to stdout
+INFO main org.hibernate.cfg.SettingsFactory -Statistics: enabled
+INFO main org.hibernate.cfg.SettingsFactory -Deleted entity synthetic identifier rollback: disabled
+INFO main org.hibernate.cfg.SettingsFactory -Default entity-mode: pojo
+INFO main org.hibernate.cfg.SettingsFactory -Named query checking : enabled
+INFO main org.hibernate.cfg.SettingsFactory -Check Nullability in Core (should be disabled when Bean Validation is on): enabled
+INFO main org.hibernate.impl.SessionFactoryImpl -building session factory
+INFO main org.hibernate.type.BasicTypeRegistry -Type registration [clob] overrides previous : org.hibernate.type.ClobType@4fb64a52
+INFO main org.hibernate.type.BasicTypeRegistry -Type registration [java.sql.Clob] overrides previous : org.hibernate.type.ClobType@4fb64a52
+INFO main org.hibernate.type.BasicTypeRegistry -Type registration [characters_clob] overrides previous : org.hibernate.type.PrimitiveCharacterArrayClobType@70b48eb3
+INFO main org.hibernate.type.BasicTypeRegistry -Type registration [wrapper_materialized_blob] overrides previous : org.hibernate.type.WrappedMaterializedBlobType@7b8ea1db
+INFO main org.hibernate.type.BasicTypeRegistry -Type registration [materialized_clob] overrides previous : org.hibernate.type.MaterializedClobType@a91119b
+INFO main org.hibernate.type.BasicTypeRegistry -Type registration [materialized_blob] overrides previous : org.hibernate.type.MaterializedBlobType@77083e41
+INFO main org.hibernate.type.BasicTypeRegistry -Type registration [blob] overrides previous : org.hibernate.type.BlobType@231df705
+INFO main org.hibernate.type.BasicTypeRegistry -Type registration [java.sql.Blob] overrides previous : org.hibernate.type.BlobType@231df705
+INFO main org.hibernate.type.BasicTypeRegistry -Type registration [wrapper_characters_clob] overrides previous : org.hibernate.type.CharacterArrayClobType@2d130ac4
+INFO main org.hibernate.impl.SessionFactoryObjectFactory -Not binding factory to JNDI, no JNDI name configured
+INFO main org.hibernate.tool.hbm2ddl.SchemaUpdate -Running hbm2ddl schema update
+INFO main org.hibernate.tool.hbm2ddl.SchemaUpdate -fetching database metadata
+INFO main org.hibernate.tool.hbm2ddl.SchemaUpdate -updating schema
+INFO main org.hibernate.tool.hbm2ddl.TableMetadata -table found: SSHBlog.contacts
+INFO main org.hibernate.tool.hbm2ddl.TableMetadata -columns: [address, gender, dob, name, mobile, id, email]
+INFO main org.hibernate.tool.hbm2ddl.TableMetadata -foreign keys: []
+INFO main org.hibernate.tool.hbm2ddl.TableMetadata -indexes: [primary]
+INFO main org.hibernate.tool.hbm2ddl.SchemaUpdate -schema update complete
+INFO main org.springframework.orm.hibernate3.HibernateTransactionManager -Using DataSource [org.springframework.jdbc.datasource.DriverManagerDataSource@7f0b93b4] of Hibernate SessionFactory for HibernateTransactionManager
+INFO main org.springframework.ui.freemarker.SpringTemplateLoader -SpringTemplateLoader for FreeMarker: using resource loader [Root WebApplicationContext: startup date [Tue Aug 29 12:47:51 CST 2017]; root of context hierarchy] and template loader path [/src/main/webapp/frontend/]
+INFO main org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer -ClassTemplateLoader for Spring macros added to FreeMarker configuration
+INFO main org.springframework.web.context.ContextLoader -Root WebApplicationContext: initialization completed in 1114 ms
+INFO main org.springframework.web.servlet.DispatcherServlet -FrameworkServlet 'dispatcher': initialization started
+INFO main org.springframework.web.context.support.XmlWebApplicationContext -Refreshing WebApplicationContext for namespace 'dispatcher-servlet': startup date [Tue Aug 29 12:47:52 CST 2017]; parent: Root WebApplicationContext
+INFO main org.springframework.beans.factory.xml.XmlBeanDefinitionReader -Loading XML bean definitions from class path resource [spring-mvc.xml]
+INFO main org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor -JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+INFO main org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer -ClassTemplateLoader for Spring macros added to FreeMarker configuration
+INFO main org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping -Mapped URL path [/index] onto handler 'SSHBlogController'
+INFO main org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping -Mapped URL path [/index.*] onto handler 'SSHBlogController'
+INFO main org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping -Mapped URL path [/index/] onto handler 'SSHBlogController'
+INFO main org.springframework.web.servlet.DispatcherServlet -FrameworkServlet 'dispatcher': initialization completed in 279 ms
+INFO Timer-1 org.springframework.web.context.support.XmlWebApplicationContext -Closing WebApplicationContext for namespace 'dispatcher-servlet': startup date [Tue Aug 29 12:47:52 CST 2017]; parent: Root WebApplicationContext
+INFO Timer-1 org.springframework.web.context.support.XmlWebApplicationContext -Closing Root WebApplicationContext: startup date [Tue Aug 29 12:47:51 CST 2017]; root of context hierarchy
+INFO Timer-1 org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean -Closing Hibernate SessionFactory
+INFO Timer-1 org.hibernate.impl.SessionFactoryImpl -closing
+INFO Timer-1 org.springframework.web.context.ContextLoader -Root WebApplicationContext: initialization started
+INFO Timer-1 org.springframework.web.context.support.XmlWebApplicationContext -Refreshing Root WebApplicationContext: startup date [Tue Aug 29 12:49:09 CST 2017]; root of context hierarchy
+INFO Timer-1 org.springframework.beans.factory.xml.XmlBeanDefinitionReader -Loading XML bean definitions from file [/Users/fei/Documents/Workspace/IDEAWorkspace/J2EE/SSHBlog/target/classes/applicationContext.xml]
+INFO Timer-1 org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor -JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+INFO Timer-1 org.springframework.jdbc.datasource.DriverManagerDataSource -Loaded JDBC driver: com.mysql.jdbc.Driver
+INFO Timer-1 org.hibernate.annotations.common.Version -Hibernate Commons Annotations 3.2.0.Final
+INFO Timer-1 org.hibernate.cfg.Environment -Hibernate 3.6.10.Final
+INFO Timer-1 org.hibernate.cfg.Environment -hibernate.properties not found
+INFO Timer-1 org.hibernate.cfg.Environment -Bytecode provider name : javassist
+INFO Timer-1 org.hibernate.cfg.Environment -using JDK 1.4 java.sql.Timestamp handling
+INFO Timer-1 org.hibernate.cfg.AnnotationBinder -Binding entity from annotated class: com.sshblog.entity.Contacts
+INFO Timer-1 org.hibernate.cfg.annotations.EntityBinder -Bind entity com.sshblog.entity.Contacts on table contacts
+INFO Timer-1 org.hibernate.cfg.Configuration -Hibernate Validator not found: ignoring
+INFO Timer-1 org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean -Building new Hibernate SessionFactory
+INFO Timer-1 org.hibernate.cfg.search.HibernateSearchEventListenerRegister -Unable to find org.hibernate.search.event.FullTextIndexEventListener on the classpath. Hibernate Search is not enabled.
+INFO Timer-1 org.hibernate.connection.ConnectionProviderFactory -Initializing connection provider: org.springframework.orm.hibernate3.LocalDataSourceConnectionProvider
+INFO Timer-1 org.hibernate.dialect.Dialect -Using dialect: org.hibernate.dialect.MySQLDialect
+INFO Timer-1 org.hibernate.cfg.SettingsFactory -Database ->
+       name : MySQL
+    version : 5.7.19
+      major : 5
+      minor : 7
+INFO Timer-1 org.hibernate.cfg.SettingsFactory -Driver ->
+       name : MySQL Connector Java
+    version : mysql-connector-java-5.1.43 ( Revision: 1d14b699eff3e6112aaedb1cbe5a151ab81f98f1 )
+      major : 5
+      minor : 1
+INFO Timer-1 org.hibernate.transaction.TransactionFactoryFactory -Transaction strategy: org.springframework.orm.hibernate3.SpringTransactionFactory
+INFO Timer-1 org.hibernate.transaction.TransactionManagerLookupFactory -No TransactionManagerLookup configured (in JTA environment, use of read-write or transactional second-level cache is not recommended)
+INFO Timer-1 org.hibernate.cfg.SettingsFactory -Automatic flush during beforeCompletion(): disabled
+INFO Timer-1 org.hibernate.cfg.SettingsFactory -Automatic session close at end of transaction: disabled
+INFO Timer-1 org.hibernate.cfg.SettingsFactory -JDBC batch size: 15
+INFO Timer-1 org.hibernate.cfg.SettingsFactory -JDBC batch updates for versioned data: disabled
+INFO Timer-1 org.hibernate.cfg.SettingsFactory -Scrollable result sets: enabled
+INFO Timer-1 org.hibernate.cfg.SettingsFactory -JDBC3 getGeneratedKeys(): enabled
+INFO Timer-1 org.hibernate.cfg.SettingsFactory -Connection release mode: auto
+INFO Timer-1 org.hibernate.cfg.SettingsFactory -Maximum outer join fetch depth: 2
+INFO Timer-1 org.hibernate.cfg.SettingsFactory -Default batch fetch size: 1
+INFO Timer-1 org.hibernate.cfg.SettingsFactory -Generate SQL with comments: disabled
+INFO Timer-1 org.hibernate.cfg.SettingsFactory -Order SQL updates by primary key: disabled
+INFO Timer-1 org.hibernate.cfg.SettingsFactory -Order SQL inserts for batching: disabled
+INFO Timer-1 org.hibernate.cfg.SettingsFactory -Query translator: org.hibernate.hql.ast.ASTQueryTranslatorFactory
+INFO Timer-1 org.hibernate.hql.ast.ASTQueryTranslatorFactory -Using ASTQueryTranslatorFactory
+INFO Timer-1 org.hibernate.cfg.SettingsFactory -Query language substitutions: {}
+INFO Timer-1 org.hibernate.cfg.SettingsFactory -JPA-QL strict compliance: disabled
+INFO Timer-1 org.hibernate.cfg.SettingsFactory -Second-level cache: enabled
+INFO Timer-1 org.hibernate.cfg.SettingsFactory -Query cache: disabled
+INFO Timer-1 org.hibernate.cfg.SettingsFactory -Cache region factory : org.hibernate.cache.impl.NoCachingRegionFactory
+INFO Timer-1 org.hibernate.cfg.SettingsFactory -Optimize cache for minimal puts: disabled
+INFO Timer-1 org.hibernate.cfg.SettingsFactory -Structured second-level cache entries: disabled
+INFO Timer-1 org.hibernate.cfg.SettingsFactory -Echoing all SQL to stdout
+INFO Timer-1 org.hibernate.cfg.SettingsFactory -Statistics: enabled
+INFO Timer-1 org.hibernate.cfg.SettingsFactory -Deleted entity synthetic identifier rollback: disabled
+INFO Timer-1 org.hibernate.cfg.SettingsFactory -Default entity-mode: pojo
+INFO Timer-1 org.hibernate.cfg.SettingsFactory -Named query checking : enabled
+INFO Timer-1 org.hibernate.cfg.SettingsFactory -Check Nullability in Core (should be disabled when Bean Validation is on): enabled
+INFO Timer-1 org.hibernate.impl.SessionFactoryImpl -building session factory
+INFO Timer-1 org.hibernate.type.BasicTypeRegistry -Type registration [materialized_blob] overrides previous : org.hibernate.type.MaterializedBlobType@301b5bb6
+INFO Timer-1 org.hibernate.type.BasicTypeRegistry -Type registration [materialized_clob] overrides previous : org.hibernate.type.MaterializedClobType@446dc449
+INFO Timer-1 org.hibernate.type.BasicTypeRegistry -Type registration [wrapper_materialized_blob] overrides previous : org.hibernate.type.WrappedMaterializedBlobType@3c60eda3
+INFO Timer-1 org.hibernate.type.BasicTypeRegistry -Type registration [clob] overrides previous : org.hibernate.type.ClobType@66d3b666
+INFO Timer-1 org.hibernate.type.BasicTypeRegistry -Type registration [java.sql.Clob] overrides previous : org.hibernate.type.ClobType@66d3b666
+INFO Timer-1 org.hibernate.type.BasicTypeRegistry -Type registration [blob] overrides previous : org.hibernate.type.BlobType@cff97e1
+INFO Timer-1 org.hibernate.type.BasicTypeRegistry -Type registration [java.sql.Blob] overrides previous : org.hibernate.type.BlobType@cff97e1
+INFO Timer-1 org.hibernate.type.BasicTypeRegistry -Type registration [characters_clob] overrides previous : org.hibernate.type.PrimitiveCharacterArrayClobType@261a45bb
+INFO Timer-1 org.hibernate.type.BasicTypeRegistry -Type registration [wrapper_characters_clob] overrides previous : org.hibernate.type.CharacterArrayClobType@1d2cb92e
+INFO Timer-1 org.hibernate.impl.SessionFactoryObjectFactory -Not binding factory to JNDI, no JNDI name configured
+INFO Timer-1 org.hibernate.tool.hbm2ddl.SchemaUpdate -Running hbm2ddl schema update
+INFO Timer-1 org.hibernate.tool.hbm2ddl.SchemaUpdate -fetching database metadata
+INFO Timer-1 org.hibernate.tool.hbm2ddl.SchemaUpdate -updating schema
+INFO Timer-1 org.hibernate.tool.hbm2ddl.TableMetadata -table found: SSHBlog.contacts
+INFO Timer-1 org.hibernate.tool.hbm2ddl.TableMetadata -columns: [address, gender, dob, name, mobile, id, email]
+INFO Timer-1 org.hibernate.tool.hbm2ddl.TableMetadata -foreign keys: []
+INFO Timer-1 org.hibernate.tool.hbm2ddl.TableMetadata -indexes: [primary]
+INFO Timer-1 org.hibernate.tool.hbm2ddl.SchemaUpdate -schema update complete
+INFO Timer-1 org.springframework.orm.hibernate3.HibernateTransactionManager -Using DataSource [org.springframework.jdbc.datasource.DriverManagerDataSource@6938936b] of Hibernate SessionFactory for HibernateTransactionManager
+INFO Timer-1 org.springframework.ui.freemarker.SpringTemplateLoader -SpringTemplateLoader for FreeMarker: using resource loader [Root WebApplicationContext: startup date [Tue Aug 29 12:49:09 CST 2017]; root of context hierarchy] and template loader path [/src/main/webapp/frontend/]
+INFO Timer-1 org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer -ClassTemplateLoader for Spring macros added to FreeMarker configuration
+INFO Timer-1 org.springframework.web.context.ContextLoader -Root WebApplicationContext: initialization completed in 1371 ms
+INFO Timer-1 org.springframework.web.servlet.DispatcherServlet -FrameworkServlet 'dispatcher': initialization started
+INFO Timer-1 org.springframework.web.context.support.XmlWebApplicationContext -Refreshing WebApplicationContext for namespace 'dispatcher-servlet': startup date [Tue Aug 29 12:49:11 CST 2017]; parent: Root WebApplicationContext
+INFO Timer-1 org.springframework.beans.factory.xml.XmlBeanDefinitionReader -Loading XML bean definitions from class path resource [spring-mvc.xml]
+INFO Timer-1 org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor -JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+INFO Timer-1 org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer -ClassTemplateLoader for Spring macros added to FreeMarker configuration
+INFO Timer-1 org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping -Mapped URL path [/index] onto handler 'SSHBlogController'
+INFO Timer-1 org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping -Mapped URL path [/index.*] onto handler 'SSHBlogController'
+INFO Timer-1 org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping -Mapped URL path [/index/] onto handler 'SSHBlogController'
+INFO Timer-1 org.springframework.web.servlet.DispatcherServlet -FrameworkServlet 'dispatcher': initialization completed in 262 ms
+INFO main org.springframework.web.context.ContextLoader -Root WebApplicationContext: initialization started
+INFO main org.springframework.web.context.support.XmlWebApplicationContext -Refreshing Root WebApplicationContext: startup date [Tue Aug 29 12:50:16 CST 2017]; root of context hierarchy
+INFO main org.springframework.beans.factory.xml.XmlBeanDefinitionReader -Loading XML bean definitions from file [/Users/fei/Documents/Workspace/IDEAWorkspace/J2EE/SSHBlog/target/classes/applicationContext.xml]
+INFO main org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor -JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+INFO main org.springframework.jdbc.datasource.DriverManagerDataSource -Loaded JDBC driver: com.mysql.jdbc.Driver
+INFO main org.hibernate.annotations.common.Version -HCANN000001: Hibernate Commons Annotations {4.0.5.Final}
+INFO main org.hibernate.Version -HHH000412: Hibernate Core {4.3.11.Final}
+INFO main org.hibernate.cfg.Environment -HHH000206: hibernate.properties not found
+INFO main org.hibernate.cfg.Environment -HHH000021: Bytecode provider name : javassist
+INFO main org.hibernate.dialect.Dialect -HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+INFO main org.hibernate.engine.transaction.internal.TransactionFactoryInitiator -HHH000399: Using default transaction strategy (direct JDBC transactions)
+INFO main org.hibernate.hql.internal.ast.ASTQueryTranslatorFactory -HHH000397: Using ASTQueryTranslatorFactory
+INFO main org.hibernate.tool.hbm2ddl.SchemaUpdate -HHH000228: Running hbm2ddl schema update
+INFO main org.hibernate.tool.hbm2ddl.SchemaUpdate -HHH000102: Fetching database metadata
+INFO main org.hibernate.tool.hbm2ddl.SchemaUpdate -HHH000396: Updating schema
+INFO main org.hibernate.tool.hbm2ddl.TableMetadata -HHH000261: Table found: SSHBlog.contacts
+INFO main org.hibernate.tool.hbm2ddl.TableMetadata -HHH000037: Columns: [address, gender, dob, name, mobile, id, email]
+INFO main org.hibernate.tool.hbm2ddl.TableMetadata -HHH000108: Foreign keys: []
+INFO main org.hibernate.tool.hbm2ddl.TableMetadata -HHH000126: Indexes: [primary]
+INFO main org.hibernate.tool.hbm2ddl.SchemaUpdate -HHH000232: Schema update complete
+INFO main org.springframework.orm.hibernate4.HibernateTransactionManager -Using DataSource [org.springframework.jdbc.datasource.DriverManagerDataSource@552cede7] of Hibernate SessionFactory for HibernateTransactionManager
+INFO main org.springframework.ui.freemarker.SpringTemplateLoader -SpringTemplateLoader for FreeMarker: using resource loader [Root WebApplicationContext: startup date [Tue Aug 29 12:50:16 CST 2017]; root of context hierarchy] and template loader path [/src/main/webapp/frontend/]
+INFO main org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer -ClassTemplateLoader for Spring macros added to FreeMarker configuration
+INFO main org.springframework.web.context.ContextLoader -Root WebApplicationContext: initialization completed in 1146 ms
+INFO main org.springframework.web.servlet.DispatcherServlet -FrameworkServlet 'dispatcher': initialization started
+INFO main org.springframework.web.context.support.XmlWebApplicationContext -Refreshing WebApplicationContext for namespace 'dispatcher-servlet': startup date [Tue Aug 29 12:50:17 CST 2017]; parent: Root WebApplicationContext
+INFO main org.springframework.beans.factory.xml.XmlBeanDefinitionReader -Loading XML bean definitions from class path resource [spring-mvc.xml]
+INFO main org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor -JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+INFO main org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer -ClassTemplateLoader for Spring macros added to FreeMarker configuration
+INFO main org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping -Mapped URL path [/index] onto handler 'SSHBlogController'
+INFO main org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping -Mapped URL path [/index.*] onto handler 'SSHBlogController'
+INFO main org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping -Mapped URL path [/index/] onto handler 'SSHBlogController'
+INFO main org.springframework.web.servlet.DispatcherServlet -FrameworkServlet 'dispatcher': initialization completed in 259 ms
+INFO 24404443@qtp-818010696-0 org.hibernate.engine.internal.StatisticalLoggingSessionEventListener -Session Metrics {
+    0 nanoseconds spent acquiring 0 JDBC connections;
+    0 nanoseconds spent releasing 0 JDBC connections;
+    0 nanoseconds spent preparing 0 JDBC statements;
+    0 nanoseconds spent executing 0 JDBC statements;
+    0 nanoseconds spent executing 0 JDBC batches;
+    0 nanoseconds spent performing 0 L2C puts;
+    0 nanoseconds spent performing 0 L2C hits;
+    0 nanoseconds spent performing 0 L2C misses;
+    0 nanoseconds spent executing 0 flushes (flushing a total of 0 entities and 0 collections);
+    0 nanoseconds spent executing 0 partial-flushes (flushing a total of 0 entities and 0 collections)
+}
+INFO main org.springframework.web.context.ContextLoader -Root WebApplicationContext: initialization started
+INFO main org.springframework.web.context.support.XmlWebApplicationContext -Refreshing Root WebApplicationContext: startup date [Tue Aug 29 12:51:47 CST 2017]; root of context hierarchy
+INFO main org.springframework.beans.factory.xml.XmlBeanDefinitionReader -Loading XML bean definitions from file [/Users/fei/Documents/Workspace/IDEAWorkspace/J2EE/SSHBlog/target/classes/applicationContext.xml]
+WARN main org.springframework.web.context.support.XmlWebApplicationContext -Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanDefinitionStoreException: Invalid bean definition with name 'sessionFactory' defined in file [/Users/fei/Documents/Workspace/IDEAWorkspace/J2EE/SSHBlog/target/classes/applicationContext.xml]: Could not resolve placeholder 'hibernate.c3p0.max_size' in value "${hibernate.c3p0.max_size}"; nested exception is java.lang.IllegalArgumentException: Could not resolve placeholder 'hibernate.c3p0.max_size' in value "${hibernate.c3p0.max_size}"
+ERROR main org.springframework.web.context.ContextLoader -Context initialization failed
+org.springframework.beans.factory.BeanDefinitionStoreException: Invalid bean definition with name 'sessionFactory' defined in file [/Users/fei/Documents/Workspace/IDEAWorkspace/J2EE/SSHBlog/target/classes/applicationContext.xml]: Could not resolve placeholder 'hibernate.c3p0.max_size' in value "${hibernate.c3p0.max_size}"; nested exception is java.lang.IllegalArgumentException: Could not resolve placeholder 'hibernate.c3p0.max_size' in value "${hibernate.c3p0.max_size}"
+	at org.springframework.beans.factory.config.PlaceholderConfigurerSupport.doProcessProperties(PlaceholderConfigurerSupport.java:223)
+	at org.springframework.beans.factory.config.PropertyPlaceholderConfigurer.processProperties(PropertyPlaceholderConfigurer.java:222)
+	at org.springframework.beans.factory.config.PropertyResourceConfigurer.postProcessBeanFactory(PropertyResourceConfigurer.java:86)
+	at org.springframework.context.support.PostProcessorRegistrationDelegate.invokeBeanFactoryPostProcessors(PostProcessorRegistrationDelegate.java:281)
+	at org.springframework.context.support.PostProcessorRegistrationDelegate.invokeBeanFactoryPostProcessors(PostProcessorRegistrationDelegate.java:161)
+	at org.springframework.context.support.AbstractApplicationContext.invokeBeanFactoryPostProcessors(AbstractApplicationContext.java:687)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:525)
+	at org.springframework.web.context.ContextLoader.configureAndRefreshWebApplicationContext(ContextLoader.java:443)
+	at org.springframework.web.context.ContextLoader.initWebApplicationContext(ContextLoader.java:325)
+	at org.springframework.web.context.ContextLoaderListener.contextInitialized(ContextLoaderListener.java:107)
+	at org.mortbay.jetty.handler.ContextHandler.startContext(ContextHandler.java:548)
+	at org.mortbay.jetty.servlet.Context.startContext(Context.java:136)
+	at org.mortbay.jetty.webapp.WebAppContext.startContext(WebAppContext.java:1239)
+	at org.mortbay.jetty.handler.ContextHandler.doStart(ContextHandler.java:517)
+	at org.mortbay.jetty.webapp.WebAppContext.doStart(WebAppContext.java:466)
+	at org.mortbay.jetty.plugin.Jetty6PluginWebAppContext.doStart(Jetty6PluginWebAppContext.java:124)
+	at org.mortbay.component.AbstractLifeCycle.start(AbstractLifeCycle.java:50)
+	at org.mortbay.jetty.handler.HandlerCollection.doStart(HandlerCollection.java:152)
+	at org.mortbay.jetty.handler.ContextHandlerCollection.doStart(ContextHandlerCollection.java:156)
+	at org.mortbay.component.AbstractLifeCycle.start(AbstractLifeCycle.java:50)
+	at org.mortbay.jetty.handler.HandlerCollection.doStart(HandlerCollection.java:152)
+	at org.mortbay.component.AbstractLifeCycle.start(AbstractLifeCycle.java:50)
+	at org.mortbay.jetty.handler.HandlerWrapper.doStart(HandlerWrapper.java:130)
+	at org.mortbay.jetty.Server.doStart(Server.java:224)
+	at org.mortbay.component.AbstractLifeCycle.start(AbstractLifeCycle.java:50)
+	at org.mortbay.jetty.plugin.Jetty6PluginServer.start(Jetty6PluginServer.java:132)
+	at org.mortbay.jetty.plugin.AbstractJettyMojo.startJetty(AbstractJettyMojo.java:441)
+	at org.mortbay.jetty.plugin.AbstractJettyMojo.execute(AbstractJettyMojo.java:383)
+	at org.mortbay.jetty.plugin.AbstractJettyRunMojo.execute(AbstractJettyRunMojo.java:210)
+	at org.mortbay.jetty.plugin.Jetty6RunMojo.execute(Jetty6RunMojo.java:184)
+	at org.apache.maven.plugin.DefaultBuildPluginManager.executeMojo(DefaultBuildPluginManager.java:134)
+	at org.apache.maven.lifecycle.internal.MojoExecutor.execute(MojoExecutor.java:208)
+	at org.apache.maven.lifecycle.internal.MojoExecutor.execute(MojoExecutor.java:154)
+	at org.apache.maven.lifecycle.internal.MojoExecutor.execute(MojoExecutor.java:146)
+	at org.apache.maven.lifecycle.internal.LifecycleModuleBuilder.buildProject(LifecycleModuleBuilder.java:117)
+	at org.apache.maven.lifecycle.internal.LifecycleModuleBuilder.buildProject(LifecycleModuleBuilder.java:81)
+	at org.apache.maven.lifecycle.internal.builder.singlethreaded.SingleThreadedBuilder.build(SingleThreadedBuilder.java:51)
+	at org.apache.maven.lifecycle.internal.LifecycleStarter.execute(LifecycleStarter.java:128)
+	at org.apache.maven.DefaultMaven.doExecute(DefaultMaven.java:309)
+	at org.apache.maven.DefaultMaven.doExecute(DefaultMaven.java:194)
+	at org.apache.maven.DefaultMaven.execute(DefaultMaven.java:107)
+	at org.apache.maven.cli.MavenCli.execute(MavenCli.java:993)
+	at org.apache.maven.cli.MavenCli.doMain(MavenCli.java:345)
+	at org.apache.maven.cli.MavenCli.main(MavenCli.java:191)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.codehaus.plexus.classworlds.launcher.Launcher.launchEnhanced(Launcher.java:289)
+	at org.codehaus.plexus.classworlds.launcher.Launcher.launch(Launcher.java:229)
+	at org.codehaus.plexus.classworlds.launcher.Launcher.mainWithExitCode(Launcher.java:415)
+	at org.codehaus.plexus.classworlds.launcher.Launcher.main(Launcher.java:356)
+	at org.codehaus.classworlds.Launcher.main(Launcher.java:47)
+Caused by: java.lang.IllegalArgumentException: Could not resolve placeholder 'hibernate.c3p0.max_size' in value "${hibernate.c3p0.max_size}"
+	at org.springframework.util.PropertyPlaceholderHelper.parseStringValue(PropertyPlaceholderHelper.java:174)
+	at org.springframework.util.PropertyPlaceholderHelper.replacePlaceholders(PropertyPlaceholderHelper.java:126)
+	at org.springframework.beans.factory.config.PropertyPlaceholderConfigurer$PlaceholderResolvingStringValueResolver.resolveStringValue(PropertyPlaceholderConfigurer.java:258)
+	at org.springframework.beans.factory.config.BeanDefinitionVisitor.resolveStringValue(BeanDefinitionVisitor.java:282)
+	at org.springframework.beans.factory.config.BeanDefinitionVisitor.resolveValue(BeanDefinitionVisitor.java:204)
+	at org.springframework.beans.factory.config.BeanDefinitionVisitor.visitMap(BeanDefinitionVisitor.java:262)
+	at org.springframework.beans.factory.config.BeanDefinitionVisitor.resolveValue(BeanDefinitionVisitor.java:198)
+	at org.springframework.beans.factory.config.BeanDefinitionVisitor.visitPropertyValues(BeanDefinitionVisitor.java:141)
+	at org.springframework.beans.factory.config.BeanDefinitionVisitor.visitBeanDefinition(BeanDefinitionVisitor.java:82)
+	at org.springframework.beans.factory.config.PlaceholderConfigurerSupport.doProcessProperties(PlaceholderConfigurerSupport.java:220)
+	... 52 more
+INFO main org.springframework.web.context.ContextLoader -Root WebApplicationContext: initialization started
+INFO main org.springframework.web.context.support.XmlWebApplicationContext -Refreshing Root WebApplicationContext: startup date [Tue Aug 29 12:52:17 CST 2017]; root of context hierarchy
+INFO main org.springframework.beans.factory.xml.XmlBeanDefinitionReader -Loading XML bean definitions from file [/Users/fei/Documents/Workspace/IDEAWorkspace/J2EE/SSHBlog/target/classes/applicationContext.xml]
+INFO main org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor -JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+INFO main org.springframework.jdbc.datasource.DriverManagerDataSource -Loaded JDBC driver: com.mysql.jdbc.Driver
+INFO main org.hibernate.annotations.common.Version -HCANN000001: Hibernate Commons Annotations {4.0.5.Final}
+INFO main org.hibernate.Version -HHH000412: Hibernate Core {4.3.11.Final}
+INFO main org.hibernate.cfg.Environment -HHH000205: Loaded properties from resource hibernate.properties: {hibernate.c3p0.timeout=120, hibernate.use_sql_comments=false, hibernate.c3p0.max_statements=100, hibernate.c3p0.max_size=20, hibernate.dialect=org.hibernate.dialect.MySQLDialect, hibernate.c3p0.validate=true, hibernate.c3p0.idle_test_period=120, æ¯æ¬¡é½éªè¯è¿æ¥æ¯å¦å¯ç¨=, hibernate.format_sql=false, hibernate.c3p0.min_size=5, hibernate.generate_statistics=true, hibernate.c3p0.acquire_increment=2, hibernate.hbm2ddl.auto=update, hibernate.bytecode.use_reflection_optimizer=false, hibernate.show_sql=true}
+INFO main org.hibernate.cfg.Environment -HHH000021: Bytecode provider name : javassist
+INFO main org.hibernate.dialect.Dialect -HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+INFO main org.hibernate.engine.transaction.internal.TransactionFactoryInitiator -HHH000399: Using default transaction strategy (direct JDBC transactions)
+INFO main org.hibernate.hql.internal.ast.ASTQueryTranslatorFactory -HHH000397: Using ASTQueryTranslatorFactory
+INFO main org.hibernate.tool.hbm2ddl.SchemaUpdate -HHH000228: Running hbm2ddl schema update
+INFO main org.hibernate.tool.hbm2ddl.SchemaUpdate -HHH000102: Fetching database metadata
+INFO main org.hibernate.tool.hbm2ddl.SchemaUpdate -HHH000396: Updating schema
+INFO main org.hibernate.tool.hbm2ddl.TableMetadata -HHH000261: Table found: SSHBlog.contacts
+INFO main org.hibernate.tool.hbm2ddl.TableMetadata -HHH000037: Columns: [address, gender, dob, name, mobile, id, email]
+INFO main org.hibernate.tool.hbm2ddl.TableMetadata -HHH000108: Foreign keys: []
+INFO main org.hibernate.tool.hbm2ddl.TableMetadata -HHH000126: Indexes: [primary]
+INFO main org.hibernate.tool.hbm2ddl.SchemaUpdate -HHH000232: Schema update complete
+INFO main org.springframework.orm.hibernate4.HibernateTransactionManager -Using DataSource [org.springframework.jdbc.datasource.DriverManagerDataSource@1c8f6c66] of Hibernate SessionFactory for HibernateTransactionManager
+INFO main org.springframework.ui.freemarker.SpringTemplateLoader -SpringTemplateLoader for FreeMarker: using resource loader [Root WebApplicationContext: startup date [Tue Aug 29 12:52:17 CST 2017]; root of context hierarchy] and template loader path [/src/main/webapp/frontend/]
+INFO main org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer -ClassTemplateLoader for Spring macros added to FreeMarker configuration
+INFO main org.springframework.web.context.ContextLoader -Root WebApplicationContext: initialization completed in 1138 ms
+INFO main org.springframework.web.servlet.DispatcherServlet -FrameworkServlet 'dispatcher': initialization started
+INFO main org.springframework.web.context.support.XmlWebApplicationContext -Refreshing WebApplicationContext for namespace 'dispatcher-servlet': startup date [Tue Aug 29 12:52:18 CST 2017]; parent: Root WebApplicationContext
+INFO main org.springframework.beans.factory.xml.XmlBeanDefinitionReader -Loading XML bean definitions from class path resource [spring-mvc.xml]
+INFO main org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor -JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+INFO main org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer -ClassTemplateLoader for Spring macros added to FreeMarker configuration
+INFO main org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping -Mapped URL path [/index] onto handler 'SSHBlogController'
+INFO main org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping -Mapped URL path [/index.*] onto handler 'SSHBlogController'
+INFO main org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping -Mapped URL path [/index/] onto handler 'SSHBlogController'
+INFO main org.springframework.web.servlet.DispatcherServlet -FrameworkServlet 'dispatcher': initialization completed in 260 ms
+INFO 24404443@qtp-818010696-0 org.hibernate.engine.internal.StatisticalLoggingSessionEventListener -Session Metrics {
+    0 nanoseconds spent acquiring 0 JDBC connections;
+    0 nanoseconds spent releasing 0 JDBC connections;
+    0 nanoseconds spent preparing 0 JDBC statements;
+    0 nanoseconds spent executing 0 JDBC statements;
+    0 nanoseconds spent executing 0 JDBC batches;
+    0 nanoseconds spent performing 0 L2C puts;
+    0 nanoseconds spent performing 0 L2C hits;
+    0 nanoseconds spent performing 0 L2C misses;
+    0 nanoseconds spent executing 0 flushes (flushing a total of 0 entities and 0 collections);
+    0 nanoseconds spent executing 0 partial-flushes (flushing a total of 0 entities and 0 collections)
+}
+INFO 24404443@qtp-818010696-0 org.hibernate.engine.internal.StatisticalLoggingSessionEventListener -Session Metrics {
+    0 nanoseconds spent acquiring 0 JDBC connections;
+    0 nanoseconds spent releasing 0 JDBC connections;
+    0 nanoseconds spent preparing 0 JDBC statements;
+    0 nanoseconds spent executing 0 JDBC statements;
+    0 nanoseconds spent executing 0 JDBC batches;
+    0 nanoseconds spent performing 0 L2C puts;
+    0 nanoseconds spent performing 0 L2C hits;
+    0 nanoseconds spent performing 0 L2C misses;
+    0 nanoseconds spent executing 0 flushes (flushing a total of 0 entities and 0 collections);
+    0 nanoseconds spent executing 0 partial-flushes (flushing a total of 0 entities and 0 collections)
+}
+INFO 24404443@qtp-818010696-0 org.hibernate.engine.internal.StatisticalLoggingSessionEventListener -Session Metrics {
+    0 nanoseconds spent acquiring 0 JDBC connections;
+    0 nanoseconds spent releasing 0 JDBC connections;
+    0 nanoseconds spent preparing 0 JDBC statements;
+    0 nanoseconds spent executing 0 JDBC statements;
+    0 nanoseconds spent executing 0 JDBC batches;
+    0 nanoseconds spent performing 0 L2C puts;
+    0 nanoseconds spent performing 0 L2C hits;
+    0 nanoseconds spent performing 0 L2C misses;
+    0 nanoseconds spent executing 0 flushes (flushing a total of 0 entities and 0 collections);
+    0 nanoseconds spent executing 0 partial-flushes (flushing a total of 0 entities and 0 collections)
+}
+INFO main org.springframework.web.context.ContextLoader -Root WebApplicationContext: initialization started
+INFO main org.springframework.web.context.support.XmlWebApplicationContext -Refreshing Root WebApplicationContext: startup date [Tue Aug 29 13:06:38 CST 2017]; root of context hierarchy
+INFO main org.springframework.beans.factory.xml.XmlBeanDefinitionReader -Loading XML bean definitions from file [/Users/fei/Documents/Workspace/IDEAWorkspace/J2EE/SSHBlog/target/classes/applicationContext.xml]
+INFO main org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor -JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+INFO main org.springframework.jdbc.datasource.DriverManagerDataSource -Loaded JDBC driver: com.mysql.jdbc.Driver
+INFO main org.hibernate.annotations.common.Version -HCANN000001: Hibernate Commons Annotations {4.0.5.Final}
+INFO main org.hibernate.Version -HHH000412: Hibernate Core {4.3.11.Final}
+INFO main org.hibernate.cfg.Environment -HHH000205: Loaded properties from resource hibernate.properties: {hibernate.c3p0.timeout=120, hibernate.use_sql_comments=false, hibernate.c3p0.max_statements=100, hibernate.c3p0.max_size=20, hibernate.dialect=org.hibernate.dialect.MySQLDialect, hibernate.c3p0.validate=true, hibernate.c3p0.idle_test_period=120, æ¯æ¬¡é½éªè¯è¿æ¥æ¯å¦å¯ç¨=, hibernate.format_sql=false, hibernate.c3p0.min_size=5, hibernate.generate_statistics=false, hibernate.c3p0.acquire_increment=2, hibernate.hbm2ddl.auto=update, hibernate.bytecode.use_reflection_optimizer=false, hibernate.show_sql=true}
+INFO main org.hibernate.cfg.Environment -HHH000021: Bytecode provider name : javassist
+INFO main org.hibernate.dialect.Dialect -HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+INFO main org.hibernate.engine.transaction.internal.TransactionFactoryInitiator -HHH000399: Using default transaction strategy (direct JDBC transactions)
+INFO main org.hibernate.hql.internal.ast.ASTQueryTranslatorFactory -HHH000397: Using ASTQueryTranslatorFactory
+INFO main org.hibernate.tool.hbm2ddl.SchemaUpdate -HHH000228: Running hbm2ddl schema update
+INFO main org.hibernate.tool.hbm2ddl.SchemaUpdate -HHH000102: Fetching database metadata
+INFO main org.hibernate.tool.hbm2ddl.SchemaUpdate -HHH000396: Updating schema
+INFO main org.hibernate.tool.hbm2ddl.TableMetadata -HHH000261: Table found: SSHBlog.contacts
+INFO main org.hibernate.tool.hbm2ddl.TableMetadata -HHH000037: Columns: [address, gender, dob, name, mobile, id, email]
+INFO main org.hibernate.tool.hbm2ddl.TableMetadata -HHH000108: Foreign keys: []
+INFO main org.hibernate.tool.hbm2ddl.TableMetadata -HHH000126: Indexes: [primary]
+INFO main org.hibernate.tool.hbm2ddl.SchemaUpdate -HHH000232: Schema update complete
+INFO main org.springframework.orm.hibernate4.HibernateTransactionManager -Using DataSource [org.springframework.jdbc.datasource.DriverManagerDataSource@1b7f06c7] of Hibernate SessionFactory for HibernateTransactionManager
+INFO main org.springframework.ui.freemarker.SpringTemplateLoader -SpringTemplateLoader for FreeMarker: using resource loader [Root WebApplicationContext: startup date [Tue Aug 29 13:06:38 CST 2017]; root of context hierarchy] and template loader path [/src/main/webapp/frontend/]
+INFO main org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer -ClassTemplateLoader for Spring macros added to FreeMarker configuration
+INFO main org.springframework.web.context.ContextLoader -Root WebApplicationContext: initialization completed in 1228 ms
+INFO main org.springframework.web.servlet.DispatcherServlet -FrameworkServlet 'dispatcher': initialization started
+INFO main org.springframework.web.context.support.XmlWebApplicationContext -Refreshing WebApplicationContext for namespace 'dispatcher-servlet': startup date [Tue Aug 29 13:06:40 CST 2017]; parent: Root WebApplicationContext
+INFO main org.springframework.beans.factory.xml.XmlBeanDefinitionReader -Loading XML bean definitions from class path resource [spring-mvc.xml]
+INFO main org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor -JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+INFO main org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer -ClassTemplateLoader for Spring macros added to FreeMarker configuration
+INFO main org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping -Mapped URL path [/index] onto handler 'SSHBlogController'
+INFO main org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping -Mapped URL path [/index.*] onto handler 'SSHBlogController'
+INFO main org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping -Mapped URL path [/index/] onto handler 'SSHBlogController'
+INFO main org.springframework.web.servlet.DispatcherServlet -FrameworkServlet 'dispatcher': initialization completed in 267 ms
+INFO main org.springframework.web.context.ContextLoader -Root WebApplicationContext: initialization started
+INFO main org.springframework.web.context.support.XmlWebApplicationContext -Refreshing Root WebApplicationContext: startup date [Tue Aug 29 13:08:29 CST 2017]; root of context hierarchy
+INFO main org.springframework.beans.factory.xml.XmlBeanDefinitionReader -Loading XML bean definitions from file [/Users/fei/Documents/Workspace/IDEAWorkspace/J2EE/SSHBlog/target/classes/applicationContext.xml]
+INFO main org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor -JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+INFO main org.springframework.jdbc.datasource.DriverManagerDataSource -Loaded JDBC driver: com.mysql.jdbc.Driver
+INFO main org.hibernate.annotations.common.Version -HCANN000001: Hibernate Commons Annotations {4.0.5.Final}
+INFO main org.hibernate.Version -HHH000412: Hibernate Core {4.3.11.Final}
+INFO main org.hibernate.cfg.Environment -HHH000206: hibernate.properties not found
+INFO main org.hibernate.cfg.Environment -HHH000021: Bytecode provider name : javassist
+INFO main org.hibernate.dialect.Dialect -HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+INFO main org.hibernate.engine.transaction.internal.TransactionFactoryInitiator -HHH000399: Using default transaction strategy (direct JDBC transactions)
+INFO main org.hibernate.hql.internal.ast.ASTQueryTranslatorFactory -HHH000397: Using ASTQueryTranslatorFactory
+INFO main org.hibernate.tool.hbm2ddl.SchemaUpdate -HHH000228: Running hbm2ddl schema update
+INFO main org.hibernate.tool.hbm2ddl.SchemaUpdate -HHH000102: Fetching database metadata
+INFO main org.hibernate.tool.hbm2ddl.SchemaUpdate -HHH000396: Updating schema
+INFO main org.hibernate.tool.hbm2ddl.TableMetadata -HHH000261: Table found: SSHBlog.contacts
+INFO main org.hibernate.tool.hbm2ddl.TableMetadata -HHH000037: Columns: [address, gender, dob, name, mobile, id, email]
+INFO main org.hibernate.tool.hbm2ddl.TableMetadata -HHH000108: Foreign keys: []
+INFO main org.hibernate.tool.hbm2ddl.TableMetadata -HHH000126: Indexes: [primary]
+INFO main org.hibernate.tool.hbm2ddl.SchemaUpdate -HHH000232: Schema update complete
+INFO main org.springframework.orm.hibernate4.HibernateTransactionManager -Using DataSource [org.springframework.jdbc.datasource.DriverManagerDataSource@552cede7] of Hibernate SessionFactory for HibernateTransactionManager
+INFO main org.springframework.ui.freemarker.SpringTemplateLoader -SpringTemplateLoader for FreeMarker: using resource loader [Root WebApplicationContext: startup date [Tue Aug 29 13:08:29 CST 2017]; root of context hierarchy] and template loader path [/src/main/webapp/frontend/]
+INFO main org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer -ClassTemplateLoader for Spring macros added to FreeMarker configuration
+INFO main org.springframework.web.context.ContextLoader -Root WebApplicationContext: initialization completed in 1270 ms
+INFO main org.springframework.web.servlet.DispatcherServlet -FrameworkServlet 'dispatcher': initialization started
+INFO main org.springframework.web.context.support.XmlWebApplicationContext -Refreshing WebApplicationContext for namespace 'dispatcher-servlet': startup date [Tue Aug 29 13:08:30 CST 2017]; parent: Root WebApplicationContext
+INFO main org.springframework.beans.factory.xml.XmlBeanDefinitionReader -Loading XML bean definitions from class path resource [spring-mvc.xml]
+INFO main org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor -JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+INFO main org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer -ClassTemplateLoader for Spring macros added to FreeMarker configuration
+INFO main org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping -Mapped URL path [/index] onto handler 'SSHBlogController'
+INFO main org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping -Mapped URL path [/index.*] onto handler 'SSHBlogController'
+INFO main org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping -Mapped URL path [/index/] onto handler 'SSHBlogController'
+INFO main org.springframework.web.servlet.DispatcherServlet -FrameworkServlet 'dispatcher': initialization completed in 252 ms
+INFO main org.springframework.web.context.ContextLoader -Root WebApplicationContext: initialization started
+INFO main org.springframework.web.context.support.XmlWebApplicationContext -Refreshing Root WebApplicationContext: startup date [Tue Aug 29 17:31:05 CST 2017]; root of context hierarchy
+INFO main org.springframework.beans.factory.xml.XmlBeanDefinitionReader -Loading XML bean definitions from file [/Users/fei/Documents/Workspace/IDEAWorkspace/J2EE/SSHBlog/target/classes/applicationContext.xml]
+INFO main org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor -JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+INFO main org.springframework.jdbc.datasource.DriverManagerDataSource -Loaded JDBC driver: com.mysql.jdbc.Driver
+INFO main org.hibernate.annotations.common.Version -HCANN000001: Hibernate Commons Annotations {4.0.5.Final}
+INFO main org.hibernate.Version -HHH000412: Hibernate Core {4.3.11.Final}
+INFO main org.hibernate.cfg.Environment -HHH000206: hibernate.properties not found
+INFO main org.hibernate.cfg.Environment -HHH000021: Bytecode provider name : javassist
+INFO main org.hibernate.dialect.Dialect -HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+INFO main org.hibernate.engine.transaction.internal.TransactionFactoryInitiator -HHH000399: Using default transaction strategy (direct JDBC transactions)
+INFO main org.hibernate.hql.internal.ast.ASTQueryTranslatorFactory -HHH000397: Using ASTQueryTranslatorFactory
+INFO main org.hibernate.tool.hbm2ddl.SchemaUpdate -HHH000228: Running hbm2ddl schema update
+INFO main org.hibernate.tool.hbm2ddl.SchemaUpdate -HHH000102: Fetching database metadata
+INFO main org.hibernate.tool.hbm2ddl.SchemaUpdate -HHH000396: Updating schema
+INFO main org.hibernate.tool.hbm2ddl.TableMetadata -HHH000261: Table found: SSHBlog.contacts
+INFO main org.hibernate.tool.hbm2ddl.TableMetadata -HHH000037: Columns: [address, gender, dob, name, mobile, id, email]
+INFO main org.hibernate.tool.hbm2ddl.TableMetadata -HHH000108: Foreign keys: []
+INFO main org.hibernate.tool.hbm2ddl.TableMetadata -HHH000126: Indexes: [primary]
+INFO main org.hibernate.tool.hbm2ddl.SchemaUpdate -HHH000232: Schema update complete
+INFO main org.springframework.orm.hibernate4.HibernateTransactionManager -Using DataSource [org.springframework.jdbc.datasource.DriverManagerDataSource@4b03cbad] of Hibernate SessionFactory for HibernateTransactionManager
+INFO main org.springframework.ui.freemarker.SpringTemplateLoader -SpringTemplateLoader for FreeMarker: using resource loader [Root WebApplicationContext: startup date [Tue Aug 29 17:31:05 CST 2017]; root of context hierarchy] and template loader path [/src/main/webapp/frontend/]
+INFO main org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer -ClassTemplateLoader for Spring macros added to FreeMarker configuration
+INFO main org.springframework.web.context.ContextLoader -Root WebApplicationContext: initialization completed in 1570 ms
+INFO main org.springframework.web.servlet.DispatcherServlet -FrameworkServlet 'dispatcher': initialization started
+INFO main org.springframework.web.context.support.XmlWebApplicationContext -Refreshing WebApplicationContext for namespace 'dispatcher-servlet': startup date [Tue Aug 29 17:31:07 CST 2017]; parent: Root WebApplicationContext
+INFO main org.springframework.beans.factory.xml.XmlBeanDefinitionReader -Loading XML bean definitions from class path resource [spring-mvc.xml]
+INFO main org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor -JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+INFO main org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer -ClassTemplateLoader for Spring macros added to FreeMarker configuration
+INFO main org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping -Mapped URL path [/index] onto handler 'SSHBlogController'
+INFO main org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping -Mapped URL path [/index.*] onto handler 'SSHBlogController'
+INFO main org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping -Mapped URL path [/index/] onto handler 'SSHBlogController'
+INFO main org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping -Mapped URL path [/save] onto handler 'SSHBlogController'
+INFO main org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping -Mapped URL path [/save.*] onto handler 'SSHBlogController'
+INFO main org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping -Mapped URL path [/save/] onto handler 'SSHBlogController'
+INFO main org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping -Mapped URL path [/delete] onto handler 'SSHBlogController'
+INFO main org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping -Mapped URL path [/delete.*] onto handler 'SSHBlogController'
+INFO main org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping -Mapped URL path [/delete/] onto handler 'SSHBlogController'
+INFO main org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping -Mapped URL path [/update] onto handler 'SSHBlogController'
+INFO main org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping -Mapped URL path [/update.*] onto handler 'SSHBlogController'
+INFO main org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping -Mapped URL path [/update/] onto handler 'SSHBlogController'
+INFO main org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping -Mapped URL path [/search] onto handler 'SSHBlogController'
+INFO main org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping -Mapped URL path [/search.*] onto handler 'SSHBlogController'
+INFO main org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping -Mapped URL path [/search/] onto handler 'SSHBlogController'
+INFO main org.springframework.web.servlet.DispatcherServlet -FrameworkServlet 'dispatcher': initialization completed in 323 ms
+INFO main org.springframework.web.context.ContextLoader -Root WebApplicationContext: initialization started
+INFO main org.springframework.web.context.support.XmlWebApplicationContext -Refreshing Root WebApplicationContext: startup date [Wed Aug 30 16:36:30 CST 2017]; root of context hierarchy
+INFO main org.springframework.beans.factory.xml.XmlBeanDefinitionReader -Loading XML bean definitions from file [/Users/fei/Documents/Workspace/IDEAWorkspace/J2EE/SSHBlog/target/classes/applicationContext.xml]
+INFO main org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor -JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+INFO main org.springframework.jdbc.datasource.DriverManagerDataSource -Loaded JDBC driver: com.mysql.jdbc.Driver
+INFO main org.hibernate.annotations.common.Version -HCANN000001: Hibernate Commons Annotations {4.0.5.Final}
+INFO main org.hibernate.Version -HHH000412: Hibernate Core {4.3.11.Final}
+INFO main org.hibernate.cfg.Environment -HHH000206: hibernate.properties not found
+INFO main org.hibernate.cfg.Environment -HHH000021: Bytecode provider name : javassist
+INFO main org.hibernate.dialect.Dialect -HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+INFO main org.hibernate.engine.transaction.internal.TransactionFactoryInitiator -HHH000399: Using default transaction strategy (direct JDBC transactions)
+INFO main org.hibernate.hql.internal.ast.ASTQueryTranslatorFactory -HHH000397: Using ASTQueryTranslatorFactory
+INFO main org.hibernate.tool.hbm2ddl.SchemaUpdate -HHH000228: Running hbm2ddl schema update
+INFO main org.hibernate.tool.hbm2ddl.SchemaUpdate -HHH000102: Fetching database metadata
+INFO main org.hibernate.tool.hbm2ddl.SchemaUpdate -HHH000396: Updating schema
+INFO main org.hibernate.tool.hbm2ddl.TableMetadata -HHH000261: Table found: SSHBlog.contacts
+INFO main org.hibernate.tool.hbm2ddl.TableMetadata -HHH000037: Columns: [address, gender, dob, name, mobile, id, email]
+INFO main org.hibernate.tool.hbm2ddl.TableMetadata -HHH000108: Foreign keys: []
+INFO main org.hibernate.tool.hbm2ddl.TableMetadata -HHH000126: Indexes: [primary]
+INFO main org.hibernate.tool.hbm2ddl.SchemaUpdate -HHH000232: Schema update complete
+INFO main org.springframework.orm.hibernate4.HibernateTransactionManager -Using DataSource [org.springframework.jdbc.datasource.DriverManagerDataSource@71531dd7] of Hibernate SessionFactory for HibernateTransactionManager
+INFO main org.springframework.ui.freemarker.SpringTemplateLoader -SpringTemplateLoader for FreeMarker: using resource loader [Root WebApplicationContext: startup date [Wed Aug 30 16:36:30 CST 2017]; root of context hierarchy] and template loader path [/src/main/webapp/frontend/]
+INFO main org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer -ClassTemplateLoader for Spring macros added to FreeMarker configuration
+INFO main org.springframework.web.context.ContextLoader -Root WebApplicationContext: initialization completed in 1325 ms
+INFO main org.springframework.web.servlet.DispatcherServlet -FrameworkServlet 'dispatcher': initialization started
+INFO main org.springframework.web.context.support.XmlWebApplicationContext -Refreshing WebApplicationContext for namespace 'dispatcher-servlet': startup date [Wed Aug 30 16:36:32 CST 2017]; parent: Root WebApplicationContext
+INFO main org.springframework.beans.factory.xml.XmlBeanDefinitionReader -Loading XML bean definitions from class path resource [spring-mvc.xml]
+INFO main org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor -JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+INFO main org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer -ClassTemplateLoader for Spring macros added to FreeMarker configuration
+INFO main org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping -Mapped URL path [/index] onto handler 'SSHBlogController'
+INFO main org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping -Mapped URL path [/index.*] onto handler 'SSHBlogController'
+INFO main org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping -Mapped URL path [/index/] onto handler 'SSHBlogController'
+INFO main org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping -Mapped URL path [/save] onto handler 'SSHBlogController'
+INFO main org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping -Mapped URL path [/save.*] onto handler 'SSHBlogController'
+INFO main org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping -Mapped URL path [/save/] onto handler 'SSHBlogController'
+INFO main org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping -Mapped URL path [/delete] onto handler 'SSHBlogController'
+INFO main org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping -Mapped URL path [/delete.*] onto handler 'SSHBlogController'
+INFO main org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping -Mapped URL path [/delete/] onto handler 'SSHBlogController'
+INFO main org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping -Mapped URL path [/update] onto handler 'SSHBlogController'
+INFO main org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping -Mapped URL path [/update.*] onto handler 'SSHBlogController'
+INFO main org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping -Mapped URL path [/update/] onto handler 'SSHBlogController'
+INFO main org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping -Mapped URL path [/search] onto handler 'SSHBlogController'
+INFO main org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping -Mapped URL path [/search.*] onto handler 'SSHBlogController'
+INFO main org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping -Mapped URL path [/search/] onto handler 'SSHBlogController'
+INFO main org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping -Mapped URL path [/findAllUsers] onto handler 'SSHBlogController'
+INFO main org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping -Mapped URL path [/findAllUsers.*] onto handler 'SSHBlogController'
+INFO main org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping -Mapped URL path [/findAllUsers/] onto handler 'SSHBlogController'
+INFO main org.springframework.web.servlet.DispatcherServlet -FrameworkServlet 'dispatcher': initialization completed in 295 ms
