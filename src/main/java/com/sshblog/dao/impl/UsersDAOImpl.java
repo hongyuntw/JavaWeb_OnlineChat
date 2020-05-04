@@ -39,7 +39,6 @@ public class UsersDAOImpl implements UsersDAOI {
         sessionFactory.getCurrentSession().update(user);
     }
 
-
     @Override
     public List<Users> findAllUsers() {
         Criteria criteria = sessionFactory.getCurrentSession().createCriteria(Users.class);

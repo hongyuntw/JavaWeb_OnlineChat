@@ -38,7 +38,6 @@ public class UsersServiceImpl implements UsersServiceI {
     public List<Users> findByEmail(String email) {
         return this.usersDAOI.findByEmail(email);
     }
-
     @Override
     public List<Users> findAllUsers() {
         return this.usersDAOI.findAllUsers();

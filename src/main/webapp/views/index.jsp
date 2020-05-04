@@ -8,8 +8,16 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@include file="../include.jsp" %>
 
+<%
+    String path = request.getContextPath();
+    // 获得项目完全路径（假设你的项目叫MyApp，那么获得到的地址就是http://localhost:8080/MyApp/）:
+    String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort()
+            + path + "/";
+%>
+
 <html>
 <head>
+    <script src="https://cdn.jsdelivr.net/npm/sockjs-client@1/dist/sockjs.min.js"></script>
     <script src='//production-assets.codepen.io/assets/editor/live/console_runner-079c09a0e3b9ff743e39ee2d5637b9216b3545af0de366d4b9aad9dc87e26bfd.js'></script>
     <script src='//production-assets.codepen.io/assets/editor/live/events_runner-73716630c22bbc8cff4bd0f07b135f00a0bdc5d14629260c3ec49e5606f98fdd.js'></script>
     <script src='//production-assets.codepen.io/assets/editor/live/css_live_reload_init-2c0dc5167d60a5af3ee189d570b1835129687ea2a61bee3513dee3a50c115a77.js'></script>
@@ -903,13 +911,8 @@
         <div class="contact-profile">
             <img src="http://emilcarlsson.se/assets/harveyspecter.png" alt=""/>
             <p>Harvey Specter</p>
-            <%--            <div class="social-media">--%>
-            <%--                <i class="fa fa-facebook" aria-hidden="true"></i>--%>
-            <%--                <i class="fa fa-twitter" aria-hidden="true"></i>--%>
-            <%--                <i class="fa fa-instagram" aria-hidden="true"></i>--%>
-            <%--            </div>--%>
         </div>
-        <div class="messages">
+        <div id="messages_div" class="messages">
             <ul>
                 <li class="sent">
                     <img src="http://emilcarlsson.se/assets/mikeross.png" alt=""/>
@@ -948,14 +951,212 @@
         </div>
         <div class="message-input">
             <div class="wrap">
-                <input type="text" placeholder="Write your message..."/>
-                <button class="submit"><i class="fa fa-paper-plane" aria-hidden="true"></i></button>
+                <input id="msg" type="text" placeholder="Write your message..."/>
+                <button id="sendBtn" class="submit"><i class="fa fa-paper-plane" ></i></button>
             </div>
         </div>
     </div>
 </div>
+
+<script type="text/javascript">
+    var path = 'localhost:8080/';
+    console.log(path)
+
+    var uid='${sessionScope.user.id}';
+    //发送人编号
+    var sender_id='${sessionScope.user.id}';
+    var sender_name='${sessionScope.user.nickname}';
+    //接收人编号
+
+    var to="2";
+    // 创建一个Socket实例
+    //参数为URL，ws表示WebSocket协议。onopen、onclose和onmessage方法把事件连接到Socket实例上。每个方法都提供了一个事件，以表示Socket的状态。
+    var websocket;
+    //不同浏览器的WebSocket对象类型不同
+    //alert("ws://" + path + "/ws?uid="+uid);
+    if ('WebSocket' in window) {
+        websocket = new WebSocket("ws://" + path + "ws");
+        console.log("=============WebSocket");
+        //火狐
+    }
+    else if ('MozWebSocket' in window) {
+        websocket = new MozWebSocket("ws://" + path + "ws");
+        console.log("=============MozWebSocket");
+    }
+    else {
+        websocket = new SockJS("http://" + path + "ws/sockjs");
+        console.log("=============SockJS");
+    }
+
+    console.log("ws://" + path + "ws");
+
+    //打开Socket,
+    websocket.onopen = function(event) {
+        console.log("WebSocket:已連接 ");
+    }
+
+    // 监听消息
+    //onmessage事件提供了一个data属性，它可以包含消息的Body部分。消息的Body部分必须是一个字符串，可以进行序列化/反序列化操作，以便传递更多的数据。
+    websocket.onmessage = function(event) {
+        console.log('Client received a message',event);
+        //var data=JSON.parse(event.data);
+        var data=$.parseJSON(event.data);
+        console.log("WebSocket:收到一條訊息",data);
+
+        //2种推送的消息
+        //1.用户聊天信息：发送消息触发
+        //2.系统消息：登录和退出触发
+
+        // //判断是否是欢迎消息（没用户编号的就是欢迎消息）
+        // if(data.from==undefined||data.from==null||data.from==""){
+        //     //===系统消息
+        //     $("#contentUl").append("<li><b>"+data.date+"</b><em>系统消息：</em><span>"+data.text+"</span></li>");
+        //     //刷新在线用户列表
+        //     $("#chatOnline").html("在线用户("+data.userList.length+")人");
+        //     $("#chatUserList").empty();
+        //     $(data.userList).each(function(){
+        //         $("#chatUserList").append("<li>"+this.nickname+"</li>");
+        //     });
+        //
+        // }
+        // else{
+        //     //===普通消息
+        //     //处理一下个人信息的显示：
+        //     if(data.fromName==fromName){
+        //         data.fromName="我";
+        //         $("#contentUl").append("<li><span  style='display:block; float:right;'><em>"+data.fromName+"</em><span>"+data.text+"</span><b>"+data.date+"</b></span></li><br/>");
+        //     }else{
+        //         $("#contentUl").append("<li><b>"+data.date+"</b><em>"+data.fromName+"</em><span>"+data.text+"</span></li><br/>");
+        //     }
+        // }
+        //处理一下个人信息的显示：
+        if(data.sender_name == sender_name){
+            data.sender_name="我";
+            $("#contentUl").append("<li><span  style='display:block; float:right;'><em>"+data.sender_name+"</em><span>"+data.text+"</span><b>"+data.send_time+"</b></span></li><br/>");
+        }
+        else{
+            $("#contentUl").append("<li><b>"+data.send_time+"</b><em>"+data.receiver_name+"</em><span>"+data.text+"</span></li><br/>");
+        }
+
+        scrollToBottom();
+    };
+
+    // 监听WebSocket的关闭
+    websocket.onclose = function(event) {
+        $("#contentUl").append("<li><b>"+new Date().Format("yyyy-MM-dd hh:mm:ss")+"</b><em>系统消息：</em><span>连接已断开！</span></li>");
+        scrollToBottom();
+        console.log("WebSocket:已關閉：Client notified socket has closed",event);
+    };
+
+    //监听异常
+    websocket.onerror = function(event) {
+        $("#contentUl").append("<li><b>"+new Date().Format("yyyy-MM-dd hh:mm:ss")+"</b><em>系统消息：</em><span>连接异常，建议重新登录</span></li>");
+        scrollToBottom();
+        console.log("WebSocket:發生錯誤 ",event);
+    };
+
+    //onload初始化
+    $(function(){
+        //发送消息
+        $("#sendBtn").on("click",function(){
+            sendMsg();
+        });
+        //给退出聊天绑定事件
+        $("#exitBtn").on("click",function(){
+            closeWebsocket();
+            location.href="${pageContext.request.contextPath}/index.jsp";
+        });
+
+        //给输入框绑定事件
+        $("#msg").on("keydown",function(event){
+            keySend(event);
+        });
+        //初始化时如果有消息，则滚动条到最下面：
+        scrollToBottom();
+    });
+
+    //使用ctrl+回车快捷键发送消息
+    function keySend(e) {
+        var theEvent = window.event || e;
+        var code = theEvent.keyCode || theEvent.which;
+        if (theEvent.ctrlKey && code == 13) {
+            var msg=$("#msg");
+            if (msg.innerHTML == "") {
+                msg.focus();
+                return false;
+            }
+            sendMsg();
+        }
+    }
+
+    //发送消息
+    function sendMsg(){
+        //对象为空了
+        if(websocket==undefined||websocket==null){
+            //alert('WebSocket connection not established, please connect.');
+            alert('連線狀況異常，請重新登入');
+            return;
+        }
+        //获取用户要发送的消息内容
+        var msg = $("#msg").val();
+        console.log(msg);
+        if(msg==""){
+            return;
+        }
+        else{
+            var data={};
+            data["sender_id"]= sender_id;
+            data["sender_name"]= sender_name;
+            data["receiver_id"]= "12";
+            data["receiver_name"] = "123"
+            data["text"]=msg;
+            //发送消息
+            websocket.send(JSON.stringify(data));
+            //发送完消息，清空输入框
+            $("#msg").val("");
+            $('<li class="sent"><img src="http://emilcarlsson.se/assets/mikeross.png" alt="" /><p>' + msg + '</p></li>').appendTo($('.messages ul'));
+            $('.message-input input').val(null);
+            $('.contact.active .preview').html('<span>You: </span>' + msg);
+            $(".messages").animate({scrollTop: $(document).height()}, "fast");
+
+        }
+    }
+
+    //关闭Websocket连接
+    function closeWebsocket(){
+        if (websocket != null) {
+            websocket.close();
+            websocket = null;
+        }
+
+    }
+    //div滚动条(scrollbar)保持在最底部
+    function scrollToBottom(){
+        //var div = document.getElementById('chatCon');
+        var div = document.getElementById('messages_div');
+        div.scrollTop = div.scrollHeight;
+    }
+    //格式化日期
+    Date.prototype.Format = function (fmt) { //author: meizz
+        var o = {
+            "M+": this.getMonth() + 1, //月份
+            "d+": this.getDate(), //日
+            "h+": this.getHours(), //小时
+            "m+": this.getMinutes(), //分
+            "s+": this.getSeconds(), //秒
+            "q+": Math.floor((this.getMonth() + 3) / 3), //季度
+            "S": this.getMilliseconds() //毫秒
+        };
+        if (/(y+)/.test(fmt)) fmt = fmt.replace(RegExp.$1, (this.getFullYear() + "").substr(4 - RegExp.$1.length));
+        for (var k in o)
+            if (new RegExp("(" + k + ")").test(fmt)) fmt = fmt.replace(RegExp.$1, (RegExp.$1.length == 1) ? (o[k]) : (("00" + o[k]).substr(("" + o[k]).length)));
+        return fmt;
+    }
+</script>
+
+
+
 <script src='//production-assets.codepen.io/assets/common/stopExecutionOnTimeout-b2a7b3fe212eaa732349046d8416e00a9dec26eb7fd347590fbced3ab38af52e.js'></script>
-<script src='https://code.jquery.com/jquery-2.2.4.min.js'></script>
 <script>$(".messages").animate({scrollTop: $(document).height()}, "fast");
 
 $("#profile-img").click(function () {
@@ -991,27 +1192,27 @@ $("#status-options ul li").click(function () {
     $("#status-options").removeClass("active");
 });
 
-function newMessage() {
-    message = $(".message-input input").val();
-    if ($.trim(message) == '') {
-        return false;
-    }
-    $('<li class="sent"><img src="http://emilcarlsson.se/assets/mikeross.png" alt="" /><p>' + message + '</p></li>').appendTo($('.messages ul'));
-    $('.message-input input').val(null);
-    $('.contact.active .preview').html('<span>You: </span>' + message);
-    $(".messages").animate({scrollTop: $(document).height()}, "fast");
-};
+// function newMessage() {
+//     message = $(".message-input input").val();
+//     if ($.trim(message) == '') {
+//         return false;
+//     }
+//     $('<li class="sent"><img src="http://emilcarlsson.se/assets/mikeross.png" alt="" /><p>' + message + '</p></li>').appendTo($('.messages ul'));
+//     $('.message-input input').val(null);
+//     $('.contact.active .preview').html('<span>You: </span>' + message);
+//     $(".messages").animate({scrollTop: $(document).height()}, "fast");
+// };
+//
+// $('.submit').click(function () {
+//     newMessage();
+// });
 
-$('.submit').click(function () {
-    newMessage();
-});
-
-$(window).on('keydown', function (e) {
-    if (e.which == 13) {
-        newMessage();
-        return false;
-    }
-});
+// $(window).on('keydown', function (e) {
+//     if (e.which == 13) {
+//         newMessage();
+//         return false;
+//     }
+// });
 //# sourceURL=pen.js
 </script>
 </body>
