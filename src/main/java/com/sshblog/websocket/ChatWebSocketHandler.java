@@ -156,7 +156,7 @@ public class ChatWebSocketHandler implements WebSocketHandler {
      */
     public void afterConnectionClosed(WebSocketSession webSocketSession, CloseStatus closeStatus) throws Exception {
         // 记录日志，准备关闭连接
-        System.out.println("Websocket正常斷開:" + webSocketSession.getId() + "已經關閉");
+        System.out.println("Websocket正常斷開 用戶:" + webSocketSession.getId() + "已經關閉");
 
         //群发消息告知大家
 //        Messages msg = new Messages();

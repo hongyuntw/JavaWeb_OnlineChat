@@ -63,6 +63,24 @@
       <version>20190722</version>
     </dependency>
 
+
+<!--    java mail-->
+
+    <dependency>
+      <groupId>javax.mail</groupId>
+      <artifactId>mail</artifactId>
+      <version>1.4</version>
+    </dependency>
+
+
+    <!-- https://mvnrepository.com/artifact/org.springframework.security/spring-security-core -->
+    <dependency>
+      <groupId>org.springframework.security</groupId>
+      <artifactId>spring-security-core</artifactId>
+      <version>5.0.7.RELEASE</version>
+    </dependency>
+
+
     <!--以下是Spring依赖-->
     <dependency>
       <groupId>org.springframework</groupId>

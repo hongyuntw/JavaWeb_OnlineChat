@@ -1,4 +1,7 @@
-<%--
+<%@ page import="com.sshblog.entity.Messages" %>
+<%@ page import="java.util.List" %>
+<%@ page import="java.util.Map" %>
+<%@ page import="com.sshblog.entity.Users" %><%--
   Created by IntelliJ IDEA.
   User: chianghongyun
   Date: 2020/5/1
@@ -13,10 +16,22 @@
     // 获得项目完全路径（假设你的项目叫MyApp，那么获得到的地址就是http://localhost:8080/MyApp/）:
     String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort()
             + path + "/";
+    String receiver_id = request.getParameter("rID");
+    String receiver_name = "";
+    Users currentReceiveUser = new Users();
+    if (receiver_id != null || receiver_id != "") {
+        for (Users user : (List<Users>) request.getAttribute("allUsers")) {
+            if (String.valueOf(user.getId()).equals(receiver_id)) {
+                currentReceiveUser = user;
+                receiver_name = user.getNickname();
+            }
+        }
+    }
 %>
 
 <html>
 <head>
+    <title>聊天首頁</title>
     <script src="https://cdn.jsdelivr.net/npm/sockjs-client@1/dist/sockjs.min.js"></script>
     <script src='//production-assets.codepen.io/assets/editor/live/console_runner-079c09a0e3b9ff743e39ee2d5637b9216b3545af0de366d4b9aad9dc87e26bfd.js'></script>
     <script src='//production-assets.codepen.io/assets/editor/live/events_runner-73716630c22bbc8cff4bd0f07b135f00a0bdc5d14629260c3ec49e5606f98fdd.js'></script>
@@ -720,23 +735,26 @@
         margin-bottom: 20px;
     }
 
-    #frame .content .messages ul li.sent img {
+    #frame .content .messages ul li.replies img {
         margin: 6px 8px 0 0;
     }
 
-    #frame .content .messages ul li.sent p {
+    #frame .content .messages ul li.replies p {
         background: #435f7a;
         color: #f5f5f5;
+        word-break: break-all;
     }
 
-    #frame .content .messages ul li.replies img {
+    #frame .content .messages ul li.sent img {
         float: right;
         margin: 6px 0 0 8px;
     }
 
-    #frame .content .messages ul li.replies p {
+    #frame .content .messages ul li.sent p {
         background: #f5f5f5;
         float: right;
+        word-break: break-all;
+
     }
 
     #frame .content .messages ul li img {
@@ -751,6 +769,8 @@
         border-radius: 20px;
         max-width: 205px;
         line-height: 130%;
+        word-break: break-all;
+
     }
 
     @media screen and (min-width: 735px) {
@@ -764,6 +784,8 @@
         bottom: 0;
         width: 100%;
         z-index: 99;
+        word-break: break-all;
+
     }
 
     #frame .content .message-input .wrap {
@@ -778,6 +800,8 @@
         padding: 11px 32px 10px 8px;
         font-size: 0.8em;
         color: #32465a;
+        word-break: break-all;
+
     }
 
     @media screen and (max-width: 735px) {
@@ -873,20 +897,40 @@
         <%--        </div>--%>
         <div id="contacts">
             <ul>
-                <c:forEach items="${allUsers}" var="other_user">
-                    <c:if test="${not other_user.email.equals(sessionScope.user.email)}">
-                        <li class="contact">
-                            <div class="wrap">
-                                <span class="contact-status online"></span>
-                                <img src="http://emilcarlsson.se/assets/louislitt.png" alt=""/>
-                                <div class="meta">
-                                    <p class="name">${other_user.nickname}</p>
-                                    <p class="preview">You just got LITT up, Mike.</p>
-                                </div>
-                            </div>
-                        </li>
-                    </c:if>
-                </c:forEach>
+                <%
+                    Map<String, List<Messages>> allMessages = (Map<String, List<Messages>>) request.getAttribute("allMessages");
+                    Users login_user = (Users) session.getAttribute("user");
+                    String login_user_id = String.valueOf(login_user.getId());
+                %>
+                <%--                <c:forEach items="${allUsers}" var="other_user">--%>
+                <% for (Users other_user : (List<Users>) request.getAttribute("allUsers")) {
+                    String other_user_id = String.valueOf(other_user.getId());
+                    if (!other_user_id.equals(login_user_id)) {
+                %>
+                <%--                    <c:if test="${not other_user.email.equals(sessionScope.user.email)}">--%>
+                <li class="contact" onclick="left_list_onclick(this)" id="left_list<%=other_user_id%>">
+                    <div class="wrap">
+                        <span class="contact-status online"></span>
+                        <img src="http://emilcarlsson.se/assets/louislitt.png" alt=""/>
+                        <div class="meta">
+                            <%
+                                List<Messages> msg_list = allMessages.get(other_user_id);
+                                String last_msg = "";
+                                if (!msg_list.isEmpty()) {
+                                    last_msg = msg_list.get(msg_list.size() - 1).getText();
+                                }
+                            %>
+                            <p class="name"><%=other_user.getNickname()%>
+                            </p>
+                            <p class="preview"><%=last_msg%>
+                            </p>
+                        </div>
+                    </div>
+                </li>
+                <%--                    </c:if>--%>
+                <% }
+                } %>
+                <%--                </c:forEach>--%>
                 <%--                <li class="contact active">--%>
                 <%--                    <div class="wrap">--%>
                 <%--                        <span class="contact-status busy"></span>--%>
@@ -904,55 +948,53 @@
         <div id="bottom-bar">
             <%--            <button id="addcontact"><i class="fa fa-user-plus fa-fw" aria-hidden="true"></i> <span>Add contact</span>--%>
             <%--            </button>--%>
-            <button id="settings"><i class="fa fa-cog fa-fw" aria-hidden="true"></i> <span>Logout</span></button>
+            <form method="get" action="<c:url value="/logout" />">
+                <button id="settings" type="submit"><i class="fa fa-cog fa-fw" aria-hidden="true"></i>
+                    <span>Logout</span></button>
+            </form>
         </div>
     </div>
     <div class="content">
         <div class="contact-profile">
             <img src="http://emilcarlsson.se/assets/harveyspecter.png" alt=""/>
-            <p>Harvey Specter</p>
+            <p><%=receiver_name%></p>
         </div>
         <div id="messages_div" class="messages">
             <ul>
-                <li class="sent">
+                <%
+                    if (receiver_id != null && receiver_id != "") {
+                        List<Messages> chat_msgs = allMessages.get(receiver_id);
+                        if (!chat_msgs.isEmpty()) {
+                            for (Messages msg : chat_msgs) {
+                                String class_name;
+                                String text = msg.getText();
+                                if (msg.getSenderId() == login_user.getId()) {
+                                    class_name = "sent";
+                                } else {
+                                    class_name = "replies";
+                                }%>
+                <li class="<%=class_name%>">
                     <img src="http://emilcarlsson.se/assets/mikeross.png" alt=""/>
-                    <p>How the hell am I supposed to get a jury to believe you when I am not even sure that I do?!</p>
+                    <p><%=text%></p>
                 </li>
-                <li class="replies">
-                    <img src="http://emilcarlsson.se/assets/harveyspecter.png" alt=""/>
-                    <p>When you're backed against the wall, break the god damn thing down.</p>
-                </li>
-                <li class="replies">
-                    <img src="http://emilcarlsson.se/assets/harveyspecter.png" alt=""/>
-                    <p>Excuses don't win championships.</p>
-                </li>
-                <li class="sent">
-                    <img src="http://emilcarlsson.se/assets/mikeross.png" alt=""/>
-                    <p>Oh yeah, did Michael Jordan tell you that?</p>
-                </li>
-                <li class="replies">
-                    <img src="http://emilcarlsson.se/assets/harveyspecter.png" alt=""/>
-                    <p>No, I told him that.</p>
-                </li>
-                <li class="replies">
-                    <img src="http://emilcarlsson.se/assets/harveyspecter.png" alt=""/>
-                    <p>What are your choices when someone puts a gun to your head?</p>
-                </li>
-                <li class="sent">
-                    <img src="http://emilcarlsson.se/assets/mikeross.png" alt=""/>
-                    <p>What are you talking about? You do what they say or they shoot you.</p>
-                </li>
-                <li class="replies">
-                    <img src="http://emilcarlsson.se/assets/harveyspecter.png" alt=""/>
-                    <p>Wrong. You take the gun, or you pull out a bigger one. Or, you call their bluff. Or, you do any
-                        one of a hundred and forty six other things.</p>
-                </li>
+                <%
+                            }
+                        }
+                    }
+
+                %>
+<%--                <li class="sent">--%>
+<%--                    <img src="http://emilcarlsson.se/assets/mikeross.png" alt=""/>--%>
+<%--                    <p>How the hell am I supposed to get a jury to believe you when I am not even sure that I do?!</p>--%>
+<%--                </li>--%>
             </ul>
         </div>
+        <%--        here to input message--%>
         <div class="message-input">
             <div class="wrap">
                 <input id="msg" type="text" placeholder="Write your message..."/>
-                <button id="sendBtn" class="submit"><i class="fa fa-paper-plane" ></i></button>
+                <button onclick="sendBtn_onclick()" id="sendBtn" class="submit"><i class="fa fa-paper-plane"></i>
+                </button>
             </div>
         </div>
     </div>
@@ -960,15 +1002,17 @@
 
 <script type="text/javascript">
     var path = 'localhost:8080/';
-    console.log(path)
-
-    var uid='${sessionScope.user.id}';
+    var uid = '${sessionScope.user.id}';
     //发送人编号
-    var sender_id='${sessionScope.user.id}';
-    var sender_name='${sessionScope.user.nickname}';
+    <%--var sender_id='${sessionScope.user.id}';--%>
+    <%--var sender_name='${sessionScope.user.nickname}';--%>
+    var current_user_id = '${sessionScope.user.id}';
+    var current_user_name = '${sessionScope.user.nickname}';
+    var current_receiver_id = '<%= currentReceiveUser.getId()%>';
+    var current_receiver_name = '<%= currentReceiveUser.getNickname()%>';
     //接收人编号
 
-    var to="2";
+    // var to = "2";
     // 创建一个Socket实例
     //参数为URL，ws表示WebSocket协议。onopen、onclose和onmessage方法把事件连接到Socket实例上。每个方法都提供了一个事件，以表示Socket的状态。
     var websocket;
@@ -978,12 +1022,10 @@
         websocket = new WebSocket("ws://" + path + "ws");
         console.log("=============WebSocket");
         //火狐
-    }
-    else if ('MozWebSocket' in window) {
+    } else if ('MozWebSocket' in window) {
         websocket = new MozWebSocket("ws://" + path + "ws");
         console.log("=============MozWebSocket");
-    }
-    else {
+    } else {
         websocket = new SockJS("http://" + path + "ws/sockjs");
         console.log("=============SockJS");
     }
@@ -991,96 +1033,98 @@
     console.log("ws://" + path + "ws");
 
     //打开Socket,
-    websocket.onopen = function(event) {
+    websocket.onopen = function (event) {
         console.log("WebSocket:已連接 ");
     }
 
     // 监听消息
     //onmessage事件提供了一个data属性，它可以包含消息的Body部分。消息的Body部分必须是一个字符串，可以进行序列化/反序列化操作，以便传递更多的数据。
-    websocket.onmessage = function(event) {
-        console.log('Client received a message',event);
+    websocket.onmessage = function (event) {
+        // console.log('Client received a message',event);
         //var data=JSON.parse(event.data);
-        var data=$.parseJSON(event.data);
-        console.log("WebSocket:收到一條訊息",data);
+        var data = $.parseJSON(event.data);
+        console.log("WebSocket:收到一條訊息", data);
 
         //2种推送的消息
         //1.用户聊天信息：发送消息触发
         //2.系统消息：登录和退出触发
 
         // //判断是否是欢迎消息（没用户编号的就是欢迎消息）
-        // if(data.from==undefined||data.from==null||data.from==""){
-        //     //===系统消息
-        //     $("#contentUl").append("<li><b>"+data.date+"</b><em>系统消息：</em><span>"+data.text+"</span></li>");
-        //     //刷新在线用户列表
-        //     $("#chatOnline").html("在线用户("+data.userList.length+")人");
-        //     $("#chatUserList").empty();
-        //     $(data.userList).each(function(){
-        //         $("#chatUserList").append("<li>"+this.nickname+"</li>");
-        //     });
-        //
-        // }
-        // else{
-        //     //===普通消息
-        //     //处理一下个人信息的显示：
-        //     if(data.fromName==fromName){
-        //         data.fromName="我";
-        //         $("#contentUl").append("<li><span  style='display:block; float:right;'><em>"+data.fromName+"</em><span>"+data.text+"</span><b>"+data.date+"</b></span></li><br/>");
-        //     }else{
-        //         $("#contentUl").append("<li><b>"+data.date+"</b><em>"+data.fromName+"</em><span>"+data.text+"</span></li><br/>");
-        //     }
-        // }
-        //处理一下个人信息的显示：
-        if(data.sender_name == sender_name){
-            data.sender_name="我";
-            $("#contentUl").append("<li><span  style='display:block; float:right;'><em>"+data.sender_name+"</em><span>"+data.text+"</span><b>"+data.send_time+"</b></span></li><br/>");
-        }
-        else{
-            $("#contentUl").append("<li><b>"+data.send_time+"</b><em>"+data.receiver_name+"</em><span>"+data.text+"</span></li><br/>");
+        if (data.senderId == 0 || data.senderId == null || data.senderId == "" || data.receiverId == 0 || data.receiverId == null || data.receiverId == "") {
+            //===系统消息
+            // $("#contentUl").append("<li><b>"+data.date+"</b><em>系统消息：</em><span>"+data.text+"</span></li>");
+            // //刷新在线用户列表
+            // $("#chatOnline").html("在线用户("+data.userList.length+")人");
+            // $("#chatUserList").empty();
+            // $(data.userList).each(function(){
+            //     $("#chatUserList").append("<li>"+this.nickname+"</li>");
+            // });
+            return
+
         }
 
-        scrollToBottom();
+        console.log(data.text);
+        //收到別人傳過來的訊息
+
+        if (data.receiverId == current_user_id) {
+            // var html_msg = '<li class="replies"><img src="http://emilcarlsson.se/assets/mikeross.png" alt="" /><p>' + data.text + '</p></li>';
+            // console.log(html_msg);
+            $('<li class="replies"><img src="http://emilcarlsson.se/assets/mikeross.png" alt="" /><p>' + data.text + '</p></li>').appendTo($('.messages ul'));
+            //更改左側對話欄
+            $('.contact.active .preview').html('<span> data.senderName: </span>' + data.text);
+            // $(".messages").animate({scrollTop: $(document).height()}, "fast");
+            scrollToBottom();
+            // $("#contentUl").append("<li><span  style='display:block; float:right;'><em>"+data.sender_name+"</em><span>"+data.text+"</span><b>"+data.send_time+"</b></span></li><br/>");
+            // scrollToBottom();
+        }
     };
 
     // 监听WebSocket的关闭
-    websocket.onclose = function(event) {
-        $("#contentUl").append("<li><b>"+new Date().Format("yyyy-MM-dd hh:mm:ss")+"</b><em>系统消息：</em><span>连接已断开！</span></li>");
+    websocket.onclose = function (event) {
+        $("#contentUl").append("<li><b>" + new Date().Format("yyyy-MM-dd hh:mm:ss") + "</b><em>系统消息：</em><span>连接已断开！</span></li>");
         scrollToBottom();
-        console.log("WebSocket:已關閉：Client notified socket has closed",event);
+        console.log("WebSocket:已關閉：Client notified socket has closed", event);
     };
 
     //监听异常
-    websocket.onerror = function(event) {
-        $("#contentUl").append("<li><b>"+new Date().Format("yyyy-MM-dd hh:mm:ss")+"</b><em>系统消息：</em><span>连接异常，建议重新登录</span></li>");
+    websocket.onerror = function (event) {
+        $("#contentUl").append("<li><b>" + new Date().Format("yyyy-MM-dd hh:mm:ss") + "</b><em>系统消息：</em><span>连接异常，建议重新登录</span></li>");
         scrollToBottom();
-        console.log("WebSocket:發生錯誤 ",event);
+        console.log("WebSocket:發生錯誤 ", event);
     };
 
     //onload初始化
-    $(function(){
+    $(function () {
         //发送消息
-        $("#sendBtn").on("click",function(){
-            sendMsg();
-        });
+        // $("#sendBtn").on("click", function () {
+        //     sendMsg();
+        // });
         //给退出聊天绑定事件
-        $("#exitBtn").on("click",function(){
+        $("#exitBtn").on("click", function () {
             closeWebsocket();
-            location.href="${pageContext.request.contextPath}/index.jsp";
+            location.href = "${pageContext.request.contextPath}/index.jsp";
         });
 
         //给输入框绑定事件
-        $("#msg").on("keydown",function(event){
+        $("#msg").on("keydown", function (event) {
             keySend(event);
         });
         //初始化时如果有消息，则滚动条到最下面：
-        scrollToBottom();
+        // scrollToBottom();
     });
+
+    function sendBtn_onclick() {
+        console.log(123);
+        sendMsg();
+        scrollToBottom();
+    }
 
     //使用ctrl+回车快捷键发送消息
     function keySend(e) {
         var theEvent = window.event || e;
         var code = theEvent.keyCode || theEvent.which;
         if (theEvent.ctrlKey && code == 13) {
-            var msg=$("#msg");
+            var msg = $("#msg");
             if (msg.innerHTML == "") {
                 msg.focus();
                 return false;
@@ -1089,10 +1133,11 @@
         }
     }
 
+
     //发送消息
-    function sendMsg(){
+    function sendMsg() {
         //对象为空了
-        if(websocket==undefined||websocket==null){
+        if (websocket == undefined || websocket == null) {
             //alert('WebSocket connection not established, please connect.');
             alert('連線狀況異常，請重新登入');
             return;
@@ -1100,42 +1145,49 @@
         //获取用户要发送的消息内容
         var msg = $("#msg").val();
         console.log(msg);
-        if(msg==""){
+        if (msg == "") {
             return;
         }
-        else{
-            var data={};
-            data["sender_id"]= sender_id;
-            data["sender_name"]= sender_name;
-            data["receiver_id"]= "12";
-            data["receiver_name"] = "123"
-            data["text"]=msg;
+        else {
+            var data = {};
+            data["sender_id"] = current_user_id;
+            data["sender_name"] = current_user_name;
+            data["receiver_id"] = current_receiver_id;
+            data["receiver_name"] = current_receiver_name;
+            data["text"] = msg;
             //发送消息
             websocket.send(JSON.stringify(data));
             //发送完消息，清空输入框
             $("#msg").val("");
             $('<li class="sent"><img src="http://emilcarlsson.se/assets/mikeross.png" alt="" /><p>' + msg + '</p></li>').appendTo($('.messages ul'));
             $('.message-input input').val(null);
+            //更改左側對話欄
             $('.contact.active .preview').html('<span>You: </span>' + msg);
-            $(".messages").animate({scrollTop: $(document).height()}, "fast");
-
+            // $(".messages").animate({scrollTop: $(document).height()}, "fast");
+            scrollToBottom();
+            // $(".messages").animate({scrollTop: $(document).height()}, "fast");
         }
     }
 
     //关闭Websocket连接
-    function closeWebsocket(){
+    function closeWebsocket() {
         if (websocket != null) {
             websocket.close();
             websocket = null;
         }
 
     }
+
     //div滚动条(scrollbar)保持在最底部
-    function scrollToBottom(){
+    function scrollToBottom() {
         //var div = document.getElementById('chatCon');
         var div = document.getElementById('messages_div');
+        console.log("height");
+        console.log(div.scrollHeight);
         div.scrollTop = div.scrollHeight;
+
     }
+
     //格式化日期
     Date.prototype.Format = function (fmt) { //author: meizz
         var o = {
@@ -1152,8 +1204,17 @@
             if (new RegExp("(" + k + ")").test(fmt)) fmt = fmt.replace(RegExp.$1, (RegExp.$1.length == 1) ? (o[k]) : (("00" + o[k]).substr(("" + o[k]).length)));
         return fmt;
     }
-</script>
 
+
+    function left_list_onclick(li) {
+        var id = li.id.replace('left_list', '');
+        console.log(id);
+        window.location.href = "index?rID=" + id;
+        // current_receiver_id = id;
+        li.classList.add("active");
+        // li.addClass("active")
+    }
+</script>
 
 
 <script src='//production-assets.codepen.io/assets/common/stopExecutionOnTimeout-b2a7b3fe212eaa732349046d8416e00a9dec26eb7fd347590fbced3ab38af52e.js'></script>
