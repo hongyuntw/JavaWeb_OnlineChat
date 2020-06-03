@@ -54,14 +54,15 @@
     } catch (e) {
     }</script>
     <link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css'>
-    <link rel='stylesheet prefetch'
-          href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.2/css/font-awesome.min.css'>
+
     <style class="cp-pen-styles">body {
         display: flex;
         align-items: center;
         justify-content: center;
         min-height: 100vh;
-        background: #27ae60;
+        /*background: #27ae60;*/
+        background: linear-gradient(37deg, #008b8b, #ffff00);
+
         font-family: "proxima-nova", "Source Sans Pro", sans-serif;
         font-size: 1em;
         letter-spacing: 0.1px;
@@ -941,13 +942,11 @@
             </form>
         </div>
     </div>
-    <div class="content" style="vertical-align: center;horiz-align: center">
+    <div class="content" >
 
 
         <%if(receiver_name.equals("")) { %>
-            <span style="display: inline-block">
-                find someone to chat
-            </span>
+            <p> find someone to chat!!!</p>
         <% } else{%>
         <div class="contact-profile">
             <img src="<%=currentReceiveUser.getImg()%>" alt=""/>

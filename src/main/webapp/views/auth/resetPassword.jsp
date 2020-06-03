@@ -368,7 +368,7 @@ Last change	: 2015/03/27
                     <input hidden name="code" value="${code}">
                 </div>
 
-                <button type="submit" class="login-button"><i class="glyphicon glyphicon-chevron-right"></i></button>
+                <button type="submit" class="login-button"><i class="fa fa-chevron-right"></i></button>
             </div>
 
 

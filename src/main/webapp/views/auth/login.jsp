@@ -367,9 +367,8 @@ Last change	: 2015/03/27
 <%--                        <label for="lg_remember">remember</label>--%>
 <%--                    </div>--%>
                 </div>
-                <button type="submit" class="login-button"><i class="glyphicon glyphicon-chevron-right"></i></button>
+                <button type="submit" class="login-button"><i class="fa fa-chevron-right"></i></button>
             </div>
-            <i class="glyphicon glyphicon-chevron-right"></i>
             <div class="etc-login-form">
                 <p style="color: red">${error_msg}</p>
                 <p>new user? <a href="<c:url value="/register" />"> create new account </a></p>
