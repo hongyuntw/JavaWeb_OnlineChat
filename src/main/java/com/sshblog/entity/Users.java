@@ -15,6 +15,11 @@ public class Users {
     private String email;
     private String password;
     private Date createDate;
+    private String img;
+    private String code;
+    private int state;
+    private String resetPwdCode;
+
 
     @Id
     @Column(name = "id")
@@ -65,6 +70,50 @@ public class Users {
     public void setEmail(String email) {
         this.email = email;
     }
+
+    @Basic
+    @Column(name = "img")
+    public String getImg() {
+        return img;
+    }
+
+    public void setImg(String img) {
+        this.img = img;
+    }
+
+    @Basic
+    @Column(name = "resetPwdCode")
+    public String getResetPwdCode() {
+        return resetPwdCode;
+    }
+
+    public void setResetPwdCode(String resetPwdCode) {
+        this.resetPwdCode = resetPwdCode;
+    }
+
+    @Basic
+    @Column(name = "code")
+    public String getCode() {
+        return code;
+    }
+
+    public void setCode(String code) {
+        this.code = code;
+    }
+
+    @Basic
+    @Column(name = "state")
+    public Integer getState() {
+        return state;
+    }
+
+    public void setState(Integer state) {
+        this.state = state;
+    }
+
+
+
+
 
     @Basic
     @Column(name = "password")

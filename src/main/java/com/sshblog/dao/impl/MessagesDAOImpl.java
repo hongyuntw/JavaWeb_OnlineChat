@@ -28,9 +28,14 @@ public class MessagesDAOImpl implements MessagesDAOI {
     @Override
     public List<Messages> findAllMessages(int id, int id2) {
 //        Session session = sessionFactory.getCurrentSession();
-        String hql="from Messages m where ( m.senderId = " + id + " AND m.receiverId =" + id2 +") OR ( m.senderId ="
-                + id2 + " AND m.receiverId =" + id + ") order by m.sendTime asc"; //升序
-//        System.out.println(hql);
-        return sessionFactory.getCurrentSession().createQuery(hql).list();
+//        String hql="from Messages m where ( m.senderId = " + id + " AND m.receiverId =" + id2 +") OR ( m.senderId ="
+//                + id2 + " AND m.receiverId =" + id + ") order by m.sendTime asc"; //升序
+////        System.out.println(hql);
+        String hql="from Messages m where ( m.senderId = :id AND m.receiverId = :id2 ) OR ( m.senderId = :id2 AND m.receiverId = :id) order by m.sendTime asc"; //升序
+        Query q = sessionFactory.getCurrentSession().createQuery(hql);
+        q.setParameter("id", id);
+        q.setParameter("id2",id2);
+        return q.list();
+//        return sessionFactory.getCurrentSession().createQuery(hql).list();
     }
 }

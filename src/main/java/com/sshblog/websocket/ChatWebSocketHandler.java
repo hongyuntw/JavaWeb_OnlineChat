@@ -49,7 +49,7 @@ public class ChatWebSocketHandler implements WebSocketHandler {
 
         //群发消息告知大家
         Messages msg = new Messages();
-        msg.setText("风骚的【"+loginUser.getNickname()+"】踩着轻盈的步伐来啦。。。大家欢迎！");
+        msg.setText("【"+loginUser.getNickname()+"】已登入！！");
 //        msg.setDate(new Date());
 
         //获取所有在线的WebSocketSession对象集合

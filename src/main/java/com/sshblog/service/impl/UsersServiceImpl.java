@@ -4,6 +4,7 @@ package com.sshblog.service.impl;
 import com.sshblog.dao.UsersDAOI;
 import com.sshblog.entity.Users;
 import com.sshblog.service.UsersServiceI;
+import lombok.Builder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -18,6 +19,16 @@ public class UsersServiceImpl implements UsersServiceI {
 
     public void setUsersDAOI(UsersDAOI usersDAOI) {
         this.usersDAOI = usersDAOI;
+    }
+
+    @Override
+    public List<Users> findByCode(String code){
+        return this.usersDAOI.findByCode(code);
+    }
+
+    @Override
+    public List<Users> findByResetPwdCode(String code){
+        return this.usersDAOI.findByResetPwdCode(code);
     }
 
     @Override

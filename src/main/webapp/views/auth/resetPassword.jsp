@@ -2,14 +2,15 @@
   Created by IntelliJ IDEA.
   User: chianghongyun
   Date: 2020/5/1
-  Time: 11:32 下午
+  Time: 10:26 下午
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@include file="/include.jsp" %>
+
 <html>
 <head>
-    <title>Register</title>
+    <title>Login</title>
     <style>
         /*------------------------------------------------------------------
 [Master Stylesheet]
@@ -343,70 +344,44 @@ Last change	: 2015/03/27
     </style>
 </head>
 <body>
-
-<!-- REGISTRATION FORM -->
+<!-- LOGIN FORM -->
 <div class="text-center" style="padding:50px 0">
-    <div class="logo">register</div>
+    <div class="logo">Reset Password</div>
     <!-- Main Form -->
     <div class="login-form-1">
-        <form:form modelAttribute="user" action="registerProcess" id="register_form" class="text-left" enctype="multipart/form-data">
-        <div class="login-form-main-message"></div>
-        <div class="main-login-form">
-            <div class="login-group">
-                <div class="form-group">
-                    <form:label path="email" class="sr-only">Email</form:label>
-                    <form:input path="email" type="text" class="form-control" id="email" name="email"
-                                placeholder="email"/>
-                </div>
-                <div class="form-group">
-                    <form:label path="password" class="sr-only">Password</form:label>
-                    <form:input path="password" type="password" class="form-control" id="password" name="password"
-                                placeholder="password"/>
-                </div>
-                <div class="form-group">
-                    <label for="reg_password_confirm" class="sr-only">Password Confirm</label>
-                    <input type="password" class="form-control" id="reg_password_confirm" name="password_confirm"
-                           placeholder="confirm password">
-                </div>
-
-                <div class="form-group">
-                    <form:label path="name" class="sr-only">Email</form:label>
-                    <form:input path="name" type="text" class="form-control" id="name" name="name" placeholder="name"/>
+        <form class="text-left" method="post" id="login-form" action="/resetPasswordProcess_Check">
+            <div class="login-form-main-message"></div>
+            <div class="main-login-form">
+                <div class="login-group">
+                    <div class="form-group">
+                        <label for="oldpassword" class="sr-only">Old Password</label>
+                        <input type="password" class="form-control" id="oldpassword" name="oldpassword" placeholder="old password"/>
+                    </div>
+                    <div class="form-group">
+                        <label for="newpassword" class="sr-only">New Password</label>
+                        <input type="password" class="form-control" id="newpassword" name="newpassword" placeholder="new password"/>
+                    </div>
+                    <div class="form-group">
+                        <label for="newpassword_confirm" class="sr-only">Old Password</label>
+                        <input type="password" class="form-control" id="newpassword_confirm" name="newpassword_confirm" placeholder="new password again"/>
+                    </div>
+                    <input hidden name="code" value="${code}">
                 </div>
 
-                <div class="form-group">
-                    <form:label path="nickname" class="sr-only">Email</form:label>
-                    <form:input path="nickname" type="text" class="form-control" id="nickname" name="nickname" placeholder="nickname"/>
-                </div>
-
-                <div class="form-group">
-                    <label for="file" class="sr-only">圖片</label>
-                    <input type="file" class="form-control" id="file" name="file" />
-                </div>
-<%--                <div class="form-group">--%>
-<%--                    <label for="reg_fullname" class="sr-only">Full Name</label>--%>
-<%--                    <input type="text" class="form-control" id="reg_fullname" name="reg_fullname"--%>
-<%--                           placeholder="full name">--%>
-<%--                </div>--%>
-
-                <div class="form-group login-group-checkbox">
-                    <form:radiobutton  path="sex" class="" name="sex" id="male" value="0" placeholder="username"/>
-                    <label for="male">male</label>
-
-                    <form:radiobutton  path="sex" class="" name="sex" id="female" value="1" placeholder="username"/>
-                    <label for="female">female</label>
-                </div>
-
-                <button type="submit" class="login-button"><i class="fa fa-chevron-right"></i></button>
+                <button type="submit" class="login-button"><i class="glyphicon glyphicon-chevron-right"></i></button>
             </div>
-            <div class="etc-login-form">
-                <p style="color: red">${error_msg}</p>
-                <p>already have an account? <a href="<c:url value="/login"/>">login</a></p>
-            </div>
-            </form:form>
-        </div>
-        <!-- end:Main Form -->
+
+
+                <i class="glyphicon glyphicon-chevron-right"></i>
+                <div class="etc-login-form">
+                    <p style="color: red">${error_msg}</p>
+                    <p>Sign in? <a href="<c:url value="/login" />"> Click Here </a></p>
+                </div>
+
+
+        </form>
     </div>
+    <!-- end:Main Form -->
 </div>
 
 </body>

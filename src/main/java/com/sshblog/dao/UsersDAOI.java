@@ -13,5 +13,7 @@ public interface UsersDAOI {
     public List<Users> findByEmail(String email);
     public List<Users> findAllUsers();
 
+    public List<Users> findByCode(String code);
+    public List<Users> findByResetPwdCode(String code);
 
 }

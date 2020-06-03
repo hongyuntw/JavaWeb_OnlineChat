@@ -16,5 +16,9 @@ public interface UsersServiceI {
 
     public List<Users> findAllUsers();
 
+    public List<Users> findByCode(String code);
+
+    public List<Users> findByResetPwdCode(String code);
+
 
 }
