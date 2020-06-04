@@ -942,12 +942,17 @@
             </form>
         </div>
     </div>
-    <div class="content" >
+
 
 
         <%if(receiver_name.equals("")) { %>
-            <p> find someone to chat!!!</p>
+    <div class="content text-center" style="display: table;background-image: url('upload/chat.png');background-repeat:no-repeat;background-position:center;" >
+<%--            <p style="text-align: center;vertical-align: middle;display: table-cell;font-size: 30px">--%>
+<%--&lt;%&ndash;                <img src="upload/conversation.png">&ndash;%&gt;--%>
+<%--                find someone to chat!!!--%>
+<%--            </p>--%>
         <% } else{%>
+    <div class="content" >
         <div class="contact-profile">
             <img src="<%=currentReceiveUser.getImg()%>" alt=""/>
             <p><%=receiver_name%>
@@ -1091,8 +1096,8 @@
             // console.log(html_msg);
             $('<li class="replies"><img src="'+ current_receiver_image +'" alt="" /> <p>' + data.text + ' </p> </li>').appendTo($('.messages ul'));
             //更改左側對話欄
-            $('.contact.active .preview').html(data.text);
-            $("#left_list"+ data.senderId + " .preview").html(123)
+            // $('.contact.active .preview').html(data.text);
+            $("#left_list"+ data.senderId + " .preview").html(data.text)
             scrollToBottom();
 
         }
