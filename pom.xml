@@ -28,7 +28,7 @@
     <hibernate.version>4.3.11.Final</hibernate.version>
 
     <!--MySQL驱动版本号-->
-    <mysql-driver.version>5.1.43</mysql-driver.version>
+    <mysql-driver.version>8.0.16</mysql-driver.version>
 
     <!--freemarker版本号-->
     <freemarker.version>2.3.23</freemarker.version>
